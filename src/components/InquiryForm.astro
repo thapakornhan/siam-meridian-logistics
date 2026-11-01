@@ -1,0 +1,94 @@
+---
+import { ui, type Lang } from '../i18n/ui';
+import { data } from '../lib/content';
+interface Props { lang: Lang; kind: 'quote' | 'contact' }
+const { lang, kind } = Astro.props;
+const t = ui[lang];
+const f = t.form;
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+const email = data.contact.email;
+const msgs = { ...f.err, errorTitle: f.errorTitle, sending: f.sending, email };
+const isQuote = kind === 'quote';
+---
+<div class="form-card" data-form-wrap>
+  <div class="notice notice--ok" data-success hidden role="status" tabindex="-1">
+    <h3>{f.successTitle}</h3>
+    <p>{isQuote ? f.successQuote : f.successContact}</p>
+    <p style="margin-top:12px"><button type="button" class="link-arrow" style="background:none;border-width:0 0 2px;cursor:pointer" data-reset>{f.sendAnother}</button></p>
+  </div>
+  <div class="notice notice--err" data-error hidden role="alert" tabindex="-1">
+    <h3>{f.errorTitle}</h3>
+    <p data-error-text></p>
+  </div>
+
+  <form data-form novalidate data-endpoint="/api/submit" data-kind={kind} data-msgs={JSON.stringify(msgs)} aria-label={isQuote ? f.submitQuote : f.submitContact}>
+    <input type="hidden" name="kind" value={kind} />
+    <input type="hidden" name="lang" value={lang} />
+    <input type="hidden" name="started" value="" />
+    <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for={`${kind}-name`}>{f.fullName}</label>
+        <input id={`${kind}-name`} name="name" required maxlength="120" autocomplete="name" aria-describedby={`${kind}-name-err`} />
+        <span class="field-error" id={`${kind}-name-err`}></span>
+      </div>
+      <div class="field">
+        <label for={`${kind}-company`}>{f.company}{!isQuote && <span class="opt"> ({f.optional})</span>}</label>
+        <input id={`${kind}-company`} name="company" required={isQuote} maxlength="160" autocomplete="organization" aria-describedby={`${kind}-company-err`} />
+        <span class="field-error" id={`${kind}-company-err`}></span>
+      </div>
+      <div class="field">
+        <label for={`${kind}-email`}>{f.email}</label>
+        <input id={`${kind}-email`} name="email" type="email" required maxlength="160" autocomplete="email" inputmode="email" aria-describedby={`${kind}-email-err`} />
+        <span class="field-error" id={`${kind}-email-err`}></span>
+      </div>
+      <div class="field">
+        <label for={`${kind}-phone`}>{f.phone}{!isQuote && <span class="opt"> ({f.optional})</span>}</label>
+        <input id={`${kind}-phone`} name="phone" type="tel" required={isQuote} maxlength="40" autocomplete="tel" inputmode="tel" aria-describedby={`${kind}-phone-err`} />
+        <span class="field-error" id={`${kind}-phone-err`}></span>
+      </div>
+
+      {isQuote ? (
+        <>
+          <div class="field full">
+            <label for="q-service">{f.serviceType}</label>
+            <select id="q-service" name="service" required aria-describedby="q-service-err">
+              <option value="">{f.selectService}</option>
+              {Object.entries(f.serviceOptions).map(([v, l]) => <option value={v}>{l}</option>)}
+            </select>
+            <span class="field-error" id="q-service-err"></span>
+          </div>
+          <div class="field"><label for="q-origin">{f.origin}</label><input id="q-origin" name="origin" required maxlength="160" placeholder={f.ph.origin} aria-describedby="q-origin-err" /><span class="field-error" id="q-origin-err"></span></div>
+          <div class="field"><label for="q-destination">{f.destination}</label><input id="q-destination" name="destination" required maxlength="160" placeholder={f.ph.destination} aria-describedby="q-destination-err" /><span class="field-error" id="q-destination-err"></span></div>
+          <div class="field full"><label for="q-cargo">{f.cargo}</label><textarea id="q-cargo" name="cargo" required maxlength="2000" placeholder={f.ph.cargo} aria-describedby="q-cargo-err"></textarea><span class="field-error" id="q-cargo-err"></span></div>
+          <div class="field"><label for="q-weight">{f.weight} <span class="opt">({f.optional})</span></label><input id="q-weight" name="weight" maxlength="80" placeholder={f.ph.weight} /></div>
+          <div class="field"><label for="q-volume">{f.volume} <span class="opt">({f.optional})</span></label><input id="q-volume" name="volume" maxlength="80" placeholder={f.ph.volume} /></div>
+          <div class="field full"><label for="q-extra">{f.extra} <span class="opt">({f.optional})</span></label><textarea id="q-extra" name="extra" maxlength="2000" placeholder={f.ph.extra}></textarea></div>
+        </>
+      ) : (
+        <div class="field full">
+          <label for="c-message">{f.message}</label>
+          <textarea id="c-message" name="message" required maxlength="3000" aria-describedby="c-message-err"></textarea>
+          <span class="field-error" id="c-message-err"></span>
+        </div>
+      )}
+    </div>
+
+    <div class="turnstile">
+      {siteKey
+        ? <div class="cf-turnstile" data-sitekey={siteKey} data-language={lang} data-theme="light"></div>
+        : <p class="form-note" style="color:var(--danger)">Turnstile site key missing (set PUBLIC_TURNSTILE_SITE_KEY).</p>}
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn--navy" type="submit" data-submit>{isQuote ? f.submitQuote : f.submitContact}</button>
+      <span class="form-note" style="margin:0">{f.privacyNote}</span>
+    </div>
+  </form>
+  {siteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+</div>
+
+<script>
+  import '../scripts/form.ts';
+</script>

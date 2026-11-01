@@ -1,0 +1,65 @@
+---
+import Icon from './Icon.astro';
+import { ui, type Lang } from '../i18n/ui';
+import { href, stripLang } from '../lib/i18n';
+import { services } from '../lib/content';
+interface Props { lang: Lang; altHref: string }
+const { lang, altHref } = Astro.props;
+const t = ui[lang];
+const here = stripLang(Astro.url.pathname);
+const is = (p: string) => (p === '/' ? here === '/' : here.startsWith(p));
+const links = [
+  { p: '/', label: t.nav.home }, { p: '/about/', label: t.nav.about },
+  { p: '/services/', label: t.nav.services, menu: true },
+  { p: '/news/', label: t.nav.news }, { p: '/contact/', label: t.nav.contact }
+];
+---
+<header class="site-header" id="site-header">
+  <div class="nav-bar">
+    <a class="brand" href={href(lang)} aria-label="Siam Meridian Logistics – home">
+      <img src="/brand/logo-sm.png" width="420" height="299" alt="Siam Meridian Logistics Co., Ltd." fetchpriority="high" />
+    </a>
+    <nav aria-label={t.nav.primary} style="display:contents">
+      <ul class="nav-links">
+        {links.map((l) => l.menu ? (
+          <li>
+            <button type="button" aria-expanded="false" aria-controls="svc-menu" data-submenu-toggle {...(is(l.p) ? { 'aria-current': 'page' } : {})}>
+              {l.label}<Icon name="chevron" />
+            </button>
+            <ul class="submenu" id="svc-menu">
+              <li><a href={href(lang, '/services/')}>{t.nav.allServices}</a></li>
+              {services.map((s) => <li><a href={href(lang, `/services/${s.slug}/`)}>{s[lang].title}</a></li>)}
+            </ul>
+          </li>
+        ) : (
+          <li><a href={href(lang, l.p)} {...(is(l.p) ? { 'aria-current': 'page' } : {})}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <a class="lang-switch" href={altHref} hreflang={lang === 'en' ? 'th' : 'en'} lang={lang === 'en' ? 'th' : 'en'} aria-label={t.switchLabel}>{t.switchTo}</a>
+    <a class="btn btn--gold btn--sm nav-cta" href={href(lang, '/get-a-quote/')}>{t.nav.quote}</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open aria-label={t.nav.menu}><Icon name="menu" /></button>
+  </div>
+</header>
+
+<div class="mobile-menu on-dark" id="mobile-menu" role="dialog" aria-modal="true" aria-label={t.nav.menu}>
+  <div class="mobile-menu-top">
+    <a class="brand" href={href(lang)}><img src="/brand/logo-sm.png" width="420" height="299" alt="Siam Meridian Logistics" /></a>
+    <button class="close" type="button" data-menu-close aria-label={t.nav.close}><Icon name="close" /></button>
+  </div>
+  <nav aria-label={t.nav.primary}>
+    <a href={href(lang)}>{t.nav.home}</a>
+    <a href={href(lang, '/about/')}>{t.nav.about}</a>
+    <details>
+      <summary>{t.nav.services}</summary>
+      <a href={href(lang, '/services/')}>{t.nav.allServices}</a>
+      {services.map((s) => <a href={href(lang, `/services/${s.slug}/`)}>{s[lang].title}</a>)}
+    </details>
+    <a href={href(lang, '/news/')}>{t.nav.news}</a>
+    <a href={href(lang, '/contact/')}>{t.nav.contact}</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="lang-switch" href={altHref} hreflang={lang === 'en' ? 'th' : 'en'} lang={lang === 'en' ? 'th' : 'en'} aria-label={t.switchLabel}>{t.switchTo}</a>
+  </div>
+  <a class="btn btn--gold" href={href(lang, '/get-a-quote/')}>{t.nav.quote}</a>
+</div>

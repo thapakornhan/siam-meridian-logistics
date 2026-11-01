@@ -1,0 +1,15 @@
+---
+import { href } from '../lib/i18n';
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang; title: string; body?: string; button: string; service?: string; tight?: boolean }
+const { lang, title, body, button, service, tight = false } = Astro.props;
+const q = service ? `?service=${service}` : '';
+---
+<section class="section" style={tight ? 'padding-top:0' : undefined}>
+  <div class="wrap">
+    <div class="cta">
+      <div><h2>{title}</h2>{body && <p>{body}</p>}</div>
+      <a class="btn btn--gold" href={`${href(lang, '/get-a-quote/')}${q}`}>{button}</a>
+    </div>
+  </div>
+</section>

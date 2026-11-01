@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroBackdrop from '../components/HeroBackdrop.astro';
+import QuickQuote from '../components/QuickQuote.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Steps from '../components/Steps.astro';
+import CtaBand from '../components/CtaBand.astro';
+import ContactCards from '../components/ContactCards.astro';
+import Icon from '../components/Icon.astro';
+import { href } from '../lib/i18n';
+import { data, services } from '../lib/content';
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = data.home[lang];
+const heroImage = data.home.hero_image;
+---
+<Base lang={lang} title={c.seo_title} description={c.seo_description} path="/" jsonLd quoteBar>
+  <section class="hero">
+    {heroImage && <img class="hero-photo" src={heroImage} alt="" fetchpriority="high" />}
+    <HeroBackdrop />
+    <div class="hero-grid">
+      <div>
+        <p class="hero-label label">{c.hero_label}</p>
+        <h1><span>{c.hero_line1}</span><span class="dim">{c.hero_line2}</span><span>{c.hero_line3}</span></h1>
+        <p class="hero-intro">{c.hero_intro}</p>
+        <div class="hero-actions">
+          <a class="btn btn--gold" href={href(lang, '/get-a-quote/')}>{c.hero_cta_primary}</a>
+          <a class="btn btn--ghost" href={href(lang, '/services/')}>{c.hero_cta_secondary}</a>
+        </div>
+      </div>
+      <QuickQuote lang={lang} />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="section-head"><span class="rule"></span><h2 id="svc-h">{c.services_title}</h2><p>{c.services_intro}</p></div>
+      <div class="grid grid-3">{services.slice(0, 3).map((s) => <ServiceCard svc={s} lang={lang} />)}</div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="sol-h">
+    <div class="wrap">
+      <div class="band on-dark">
+        <div>
+          <span class="rule"></span>
+          <h2 id="sol-h">{c.solutions_title}</h2>
+          <p>{c.solutions_body}</p>
+          <a class="btn btn--gold" style="margin-top:12px" href={`${href(lang, '/get-a-quote/')}?service=international-logistics`}>{c.solutions_cta}</a>
+        </div>
+        <div class="modes" aria-hidden="true"><span><Icon name="plane" /></span><span><Icon name="globe" /></span><span><Icon name="truck" /></span><span><Icon name="ship" /></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="why-h">
+    <div class="wrap why">
+      <div class="section-head"><span class="rule"></span><h2 id="why-h">{c.why_title}</h2></div>
+      <div class="why-list">{c.why_items.map((i) => <div class="why-item"><h3>{i.title}</h3><p>{i.body}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--navy" aria-labelledby="proc-h">
+    <div class="wrap">
+      <div class="section-head"><span class="rule"></span><h2 id="proc-h">{c.process_title}</h2></div>
+      <Steps steps={c.process_steps} />
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={c.cta_title} body={c.cta_body} button={c.cta_button} />
+
+  <section class="section section--mist" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="section-head"><span class="rule"></span><h2 id="contact-h">{c.contact_title}</h2></div>
+      <ContactCards lang={lang} map={false} />
+    </div>
+  </section>
+</Base>

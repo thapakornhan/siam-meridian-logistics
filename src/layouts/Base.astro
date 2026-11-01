@@ -1,0 +1,81 @@
+---
+import '@fontsource-variable/sora';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/noto-sans-thai';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ui, type Lang } from '../i18n/ui';
+import { href, stripLang } from '../lib/i18n';
+import { data } from '../lib/content';
+
+interface Props {
+  lang: Lang; title: string; description: string;
+  /** Page path without language prefix, e.g. '/about/'. Defaults to current URL. */
+  path?: string;
+  /** Set to null when the page has no equivalent in the other language. */
+  altPath?: string | null;
+  /** Where the language switcher goes when altPath is null. */
+  altFallback?: string;
+  image?: string; type?: 'website' | 'article'; noindex?: boolean; quoteBar?: boolean; jsonLd?: boolean;
+}
+const { lang, title, description, image, type = 'website', noindex = false, quoteBar = true, jsonLd = false } = Astro.props;
+const path = Astro.props.path ?? stripLang(Astro.url.pathname);
+const altPath = Astro.props.altPath === undefined ? path : Astro.props.altPath;
+const other: Lang = lang === 'en' ? 'th' : 'en';
+const site = Astro.site!;
+const abs = (p: string) => new URL(p, site).toString();
+const canonical = abs(href(lang, path));
+const altHref = href(other, altPath ?? Astro.props.altFallback ?? '/');
+const t = ui[lang];
+const brand = lang === 'th' ? 'สยาม เมริเดียน โลจิสติกส์' : 'Siam Meridian Logistics';
+const fullTitle = `${title} | ${brand}`;
+const ogImage = abs(image || data.settings.default_og_image);
+const c = data.contact;
+const ld = {
+  '@context': 'https://schema.org', '@type': 'Organization',
+  name: data.settings.site_name, url: abs('/'), logo: abs('/brand/logo.png'),
+  email: c.email, telephone: c.phone_link,
+  address: { '@type': 'PostalAddress', streetAddress: '99/473 Rat Phatthana 22 Alley, Rat Phatthana Subdistrict', addressLocality: 'Saphan Sung District, Bangkok', postalCode: '10240', addressCountry: 'TH' }
+};
+---
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {altPath !== null && (<>
+      <link rel="alternate" hreflang={lang} href={canonical} />
+      <link rel="alternate" hreflang={other} href={abs(altHref)} />
+      <link rel="alternate" hreflang="x-default" href={abs(href('en', altPath || path))} />
+    </>)}
+    <meta name="theme-color" content="#0b2d5b" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:site_name" content={data.settings.site_name} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === 'th' ? 'th_TH' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'th' ? 'en_US' : 'th_TH'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(ld)} />}
+  </head>
+  <body class={quoteBar ? 'has-quote-bar' : ''}>
+    <a class="skip" href="#main">{t.skip}</a>
+    <Header lang={lang} altHref={altHref} />
+    <main id="main"><slot /></main>
+    <Footer lang={lang} altHref={altHref} />
+    {quoteBar && (
+      <div class="quote-bar" data-quote-bar><a class="btn btn--gold" href={href(lang, '/get-a-quote/')}>{t.nav.quote}</a></div>
+    )}
+    <script>import '../scripts/ui.ts';</script>
+  </body>
+</html>

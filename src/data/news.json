@@ -1,0 +1,16 @@
+{
+  "en": {
+    "seo_title": "News & Updates",
+    "seo_description": "News and updates from Siam Meridian Logistics.",
+    "title": "News & updates",
+    "intro": "Company news and notes on international shipping.",
+    "empty": "No articles have been published yet. Please check back soon."
+  },
+  "th": {
+    "seo_title": "ข่าวสารและอัปเดต",
+    "seo_description": "ข่าวสารและอัปเดตจาก สยาม เมริเดียน โลจิสติกส์",
+    "title": "ข่าวสารและอัปเดต",
+    "intro": "ข่าวสารบริษัทและสาระเกี่ยวกับการขนส่งระหว่างประเทศ",
+    "empty": "ยังไม่มีบทความที่เผยแพร่ กรุณากลับมาดูใหม่เร็ว ๆ นี้"
+  }
+}

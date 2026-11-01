@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Steps from '../components/Steps.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { ui, type Lang } from '../i18n/ui';
+import { href, paragraphs } from '../lib/i18n';
+import { getService, services } from '../lib/content';
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const t = ui[lang];
+const svc = getService(slug);
+const c = svc[lang];
+const others = services.filter((s) => s.slug !== slug);
+const quoteUrl = `${href(lang, '/get-a-quote/')}?service=${slug}`;
+---
+<Base lang={lang} title={c.seo_title} description={c.seo_description} path={`/services/${slug}/`}>
+  <PageHero title={c.title} intro={c.summary}>
+    <p slot="crumbs" class="crumbs"><a href={href(lang, '/services/')}>{t.nav.services}</a> / {c.title}</p>
+    <div class="hero-actions"><a class="btn btn--gold" href={quoteUrl}>{c.cta_button}</a></div>
+  </PageHero>
+
+  <section class="section" aria-labelledby="ov-h">
+    <div class="wrap split">
+      <div class="prose">
+        <span class="rule"></span>
+        <h2 id="ov-h">{t.overview}</h2>
+        {paragraphs(c.overview).map((p) => <p class="lead">{p}</p>)}
+      </div>
+      <aside class="side-panel">
+        <h3>{c.suitable_title}</h3>
+        <ul class="checks">{c.suitable.map((i) => <li><Icon name="check" /><span>{i}</span></li>)}</ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="ben-h">
+    <div class="wrap">
+      <div class="section-head"><span class="rule"></span><h2 id="ben-h">{t.keyBenefits}</h2></div>
+      <div class="grid grid-4">{c.benefits.map((b) => <div class="benefit"><h3>{b.title}</h3><p>{b.body}</p></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--navy" aria-labelledby="proc-h">
+    <div class="wrap">
+      <div class="section-head"><span class="rule"></span><h2 id="proc-h">{t.serviceProcess}</h2></div>
+      <Steps steps={c.process} />
+    </div>
+  </section>
+
+  <CtaBand lang={lang} title={c.cta_title} button={c.cta_button} service={slug} />
+
+  <section class="section section--mist" aria-labelledby="rel-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="rel-h">{t.relatedServices}</h2></div>
+      <div class="grid grid-3">{others.map((s) => <ServiceCard svc={s} lang={lang} />)}</div>
+    </div>
+  </section>
+</Base>

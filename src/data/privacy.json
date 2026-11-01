@@ -1,0 +1,48 @@
+{
+  "en": {
+    "seo_title": "Privacy Policy",
+    "seo_description": "How Siam Meridian Logistics handles information submitted through this website.",
+    "title": "Privacy policy",
+    "sections": [
+      {
+        "heading": "Information we collect",
+        "body": "When you submit a quotation request or contact form, we receive the details you enter, such as your name, company, email address, phone number and shipment information."
+      },
+      {
+        "heading": "How we use it",
+        "body": "We use this information to respond to your inquiry, prepare quotations and arrange services you request."
+      },
+      {
+        "heading": "Contact",
+        "body": "For questions about your information, email Export@sml-th.com."
+      },
+      {
+        "heading": "Placeholder notice",
+        "body": "This is placeholder text. Have it reviewed and completed to meet Thailand’s Personal Data Protection Act (PDPA) before launch."
+      }
+    ]
+  },
+  "th": {
+    "seo_title": "นโยบายความเป็นส่วนตัว",
+    "seo_description": "วิธีที่ สยาม เมริเดียน โลจิสติกส์ จัดการข้อมูลที่ส่งผ่านเว็บไซต์นี้",
+    "title": "นโยบายความเป็นส่วนตัว",
+    "sections": [
+      {
+        "heading": "ข้อมูลที่เราเก็บรวบรวม",
+        "body": "เมื่อคุณส่งแบบฟอร์มขอใบเสนอราคาหรือแบบฟอร์มติดต่อ เราจะได้รับข้อมูลที่คุณกรอก เช่น ชื่อ บริษัท อีเมล เบอร์โทรศัพท์ และรายละเอียดการขนส่ง"
+      },
+      {
+        "heading": "วิธีที่เราใช้ข้อมูล",
+        "body": "เราใช้ข้อมูลนี้เพื่อตอบกลับคำถามของคุณ จัดทำใบเสนอราคา และดำเนินการตามบริการที่คุณร้องขอ"
+      },
+      {
+        "heading": "ติดต่อ",
+        "body": "หากมีคำถามเกี่ยวกับข้อมูลของคุณ ติดต่อได้ที่ Export@sml-th.com"
+      },
+      {
+        "heading": "ข้อความตัวอย่าง",
+        "body": "นี่เป็นข้อความตัวอย่าง ควรให้ผู้เชี่ยวชาญตรวจสอบและปรับให้สอดคล้องกับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล (PDPA) ก่อนเปิดใช้งานจริง"
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import { ui, type Lang } from '../i18n/ui';
+import { data } from '../lib/content';
+interface Props { lang: Lang; map?: boolean }
+const { lang, map = true } = Astro.props;
+const t = ui[lang].contactCard;
+const c = data.contact;
+---
+<div class="contact-cards">
+  <div class="contact-card"><span class="ico"><Icon name="pin" /></span><div><h3>{t.address}</h3><address><p>{c[lang].address}</p></address></div></div>
+  <div class="contact-card"><span class="ico"><Icon name="phone" /></span><div><h3>{t.phone}</h3><p><a href={`tel:${c.phone_link}`}>{c.phone_display}</a></p></div></div>
+  <div class="contact-card"><span class="ico"><Icon name="mail" /></span><div><h3>{t.email}</h3><p><a href={`mailto:${c.email}`}>{c.email}</a></p></div></div>
+</div>
+{map && (
+  <div class="map-card">
+    {c.maps_embed_url ? (
+      <iframe src={c.maps_embed_url} title={t.mapTitle} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    ) : (
+      <div>
+        <span class="pin"><Icon name="pin" /></span>
+        <p style="margin-bottom:16px">{t.mapNote}</p>
+        <a class="btn btn--navy btn--sm" href={c.maps_url} target="_blank" rel="noopener noreferrer">{t.map}</a>
+      </div>
+    )}
+  </div>
+)}

@@ -1,0 +1,14 @@
+---
+import HeroBackdrop from './HeroBackdrop.astro';
+interface Props { title: string; intro?: string; class?: string }
+const { title, intro, class: cls = '' } = Astro.props;
+---
+<section class={`page-hero ${cls}`}>
+  <HeroBackdrop />
+  <div class="wrap">
+    <slot name="crumbs" />
+    <h1>{title}</h1>
+    {intro && <p>{intro}</p>}
+    <slot />
+  </div>
+</section>

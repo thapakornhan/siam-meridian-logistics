@@ -1,0 +1,21 @@
+---
+import { ui, type Lang } from '../i18n/ui';
+import { href } from '../lib/i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const opts = Object.entries(t.form.serviceOptions);
+---
+<form class="glass" method="get" action={href(lang, '/get-a-quote/')} aria-labelledby="qq-title">
+  <h2 id="qq-title">{t.quickQuote.title}</h2>
+  <div class="field">
+    <label for="qq-service">{t.quickQuote.service}</label>
+    <select id="qq-service" name="service">
+      <option value="">{t.quickQuote.any}</option>
+      {opts.map(([v, l]) => <option value={v}>{l}</option>)}
+    </select>
+  </div>
+  <div class="field"><label for="qq-origin">{t.quickQuote.origin}</label><input id="qq-origin" name="origin" autocomplete="off" placeholder={t.quickQuote.originPh} /></div>
+  <div class="field"><label for="qq-dest">{t.quickQuote.destination}</label><input id="qq-dest" name="destination" autocomplete="off" placeholder={t.quickQuote.destPh} /></div>
+  <button class="btn btn--gold" type="submit">{t.quickQuote.go}</button>
+</form>

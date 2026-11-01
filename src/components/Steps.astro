@@ -1,0 +1,5 @@
+---
+interface Props { steps: { title: string; body: string }[] }
+const { steps } = Astro.props;
+---
+<ol class="steps">{steps.map((s) => <li><h3>{s.title}</h3><p>{s.body}</p></li>)}</ol>

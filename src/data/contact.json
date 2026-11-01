@@ -1,0 +1,23 @@
+{
+  "phone_display": "+66 83 034 5538",
+  "phone_link": "+66830345538",
+  "email": "Export@sml-th.com",
+  "maps_url": "https://maps.app.goo.gl/Vd44g5jU4TBKjANS7",
+  "maps_embed_url": "",
+  "en": {
+    "seo_title": "Contact Us",
+    "seo_description": "Contact Siam Meridian Logistics Co., Ltd. in Bangkok for freight forwarding inquiries and quotations.",
+    "title": "Contact us",
+    "intro": "Questions about a shipment or our services? Send us a message and we will reply by email or phone.",
+    "address": "99/473 Rat Phatthana 22 Alley, Rat Phatthana Subdistrict, Saphan Sung District, Bangkok 10240, Thailand",
+    "hours": "Business hours: to be confirmed"
+  },
+  "th": {
+    "seo_title": "ติดต่อเรา",
+    "seo_description": "ติดต่อ บริษัท สยาม เมริเดียน โลจิสติกส์ จำกัด ในกรุงเทพมหานคร สอบถามบริการขนส่งและขอใบเสนอราคา",
+    "title": "ติดต่อเรา",
+    "intro": "มีคำถามเกี่ยวกับการขนส่งหรือบริการของเรา ส่งข้อความถึงเรา แล้วเราจะตอบกลับทางอีเมลหรือโทรศัพท์",
+    "address": "99/473 ซอยราษฎร์พัฒนา 22 แขวงราษฎร์พัฒนา เขตสะพานสูง กรุงเทพมหานคร 10240",
+    "hours": "เวลาทำการ: รอยืนยัน"
+  }
+}

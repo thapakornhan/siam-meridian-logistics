@@ -1,0 +1,45 @@
+---
+import Icon from './Icon.astro';
+import { ui, type Lang } from '../i18n/ui';
+import { href } from '../lib/i18n';
+import { services, data } from '../lib/content';
+interface Props { lang: Lang; altHref: string }
+const { lang, altHref } = Astro.props;
+const t = ui[lang];
+const c = data.contact;
+const s = data.settings;
+---
+<footer class="site-footer on-dark">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href={href(lang)}><img src="/brand/logo-sm.png" width="420" height="299" alt="Siam Meridian Logistics Co., Ltd." loading="lazy" /></a>
+      <p>{s[lang].tagline}</p>
+    </div>
+    <div>
+      <h3>{t.footer.explore}</h3>
+      <ul>
+        <li><a href={href(lang)}>{t.nav.home}</a></li>
+        <li><a href={href(lang, '/about/')}>{t.nav.about}</a></li>
+        <li><a href={href(lang, '/news/')}>{t.nav.news}</a></li>
+        <li><a href={href(lang, '/contact/')}>{t.nav.contact}</a></li>
+        <li><a href={href(lang, '/get-a-quote/')}>{t.nav.quote}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>{t.footer.services}</h3>
+      <ul>{services.map((sv) => <li><a href={href(lang, `/services/${sv.slug}/`)}>{sv[lang].title}</a></li>)}</ul>
+    </div>
+    <div>
+      <h3>{t.footer.contact}</h3>
+      <address>
+        <span>{c[lang].address}</span>
+        <a href={`tel:${c.phone_link}`}>{c.phone_display}</a>
+        <a href={`mailto:${c.email}`}>{c.email}</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© {new Date().getFullYear()} {s[lang].footer_note}</span>
+    <span><a href={href(lang, '/privacy/')}>{t.footer.privacy}</a> &nbsp;|&nbsp; <a href={altHref} hreflang={lang === 'en' ? 'th' : 'en'} lang={lang === 'en' ? 'th' : 'en'}>{t.switchTo === 'EN' ? 'English' : 'ไทย'}</a></span>
+  </div>
+</footer>

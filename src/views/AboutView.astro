@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { paragraphs } from '../lib/i18n';
+import { data } from '../lib/content';
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = data.about[lang];
+---
+<Base lang={lang} title={c.seo_title} description={c.seo_description} path="/about/">
+  <PageHero title={c.title} intro={c.intro} />
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">{paragraphs(c.body).map((p) => <p class="lead">{p}</p>)}</div>
+      <div class="grid">
+        <div class="side-panel"><h3>{c.vision_title}</h3><p style="margin:0">{c.vision}</p></div>
+        <div class="side-panel"><h3>{c.mission_title}</h3><p style="margin:0">{c.mission}</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--mist" aria-labelledby="phil-h">
+    <div class="wrap">
+      <div class="section-head"><span class="rule"></span><h2 id="phil-h">{c.philosophy_title}</h2></div>
+      <div class="grid grid-3">{c.philosophy_items.map((i) => <div class="benefit"><h3>{i.title}</h3><p>{i.body}</p></div>)}</div>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="why-h">
+    <div class="wrap why">
+      <div class="section-head"><span class="rule"></span><h2 id="why-h">{c.why_title}</h2></div>
+      <div class="why-list">{c.why_items.map((i) => <div class="why-item"><h3>{i.title}</h3><p>{i.body}</p></div>)}</div>
+    </div>
+  </section>
+  <CtaBand tight lang={lang} title={c.cta_title} button={c.cta_button} />
+</Base>

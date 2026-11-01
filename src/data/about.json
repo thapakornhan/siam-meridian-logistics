@@ -1,0 +1,96 @@
+{
+  "en": {
+    "seo_title": "About Us",
+    "seo_description": "Learn about Siam Meridian Logistics Co., Ltd., a Bangkok-based freight forwarder serving businesses that ship internationally.",
+    "title": "About Siam Meridian Logistics",
+    "intro": "Siam Meridian Logistics Co., Ltd. is a freight forwarder based in Bangkok, Thailand. We help businesses move cargo internationally by air, sea and land.",
+    "body": "We work as an extension of your team: listening to what you need to ship, explaining your options plainly, and coordinating the steps in between.\n\nThis page contains placeholder text. The final company profile will be added here.",
+    "vision_title": "Our vision",
+    "vision": "To be a freight forwarding partner that international businesses can rely on.",
+    "mission_title": "Our mission",
+    "mission": "To make international shipping simpler through clear communication, practical options and careful coordination.",
+    "philosophy_title": "Business philosophy",
+    "philosophy_items": [
+      {
+        "title": "Reliability",
+        "body": "We do what we say we will, and we tell you early when plans change."
+      },
+      {
+        "title": "Transparency",
+        "body": "We explain options, requirements and costs clearly before you decide."
+      },
+      {
+        "title": "Partnership",
+        "body": "We aim for long-term working relationships built on trust."
+      }
+    ],
+    "why_title": "Why work with us",
+    "why_items": [
+      {
+        "title": "Focused on freight",
+        "body": "Air, sea and land freight forwarding is what we do."
+      },
+      {
+        "title": "Straightforward service",
+        "body": "Plain answers and a single team to deal with."
+      },
+      {
+        "title": "Tailored to your cargo",
+        "body": "Recommendations based on what you ship, not a one-size-fits-all package."
+      },
+      {
+        "title": "Ready to talk",
+        "body": "Send us your requirements and we will respond with a quotation."
+      }
+    ],
+    "cta_title": "Let us talk about your shipment",
+    "cta_button": "Get a Quote"
+  },
+  "th": {
+    "seo_title": "เกี่ยวกับเรา",
+    "seo_description": "ทำความรู้จัก บริษัท สยาม เมริเดียน โลจิสติกส์ จำกัด ฟอร์เวิร์ดเดอร์ในกรุงเทพมหานคร สำหรับธุรกิจที่ส่งสินค้าระหว่างประเทศ",
+    "title": "เกี่ยวกับ สยาม เมริเดียน โลจิสติกส์",
+    "intro": "บริษัท สยาม เมริเดียน โลจิสติกส์ จำกัด เป็นฟอร์เวิร์ดเดอร์ในกรุงเทพมหานคร ประเทศไทย เราช่วยธุรกิจขนส่งสินค้าระหว่างประเทศทางอากาศ ทางเรือ และทางบก",
+    "body": "เราทำงานเสมือนเป็นส่วนหนึ่งของทีมคุณ รับฟังความต้องการในการขนส่ง อธิบายตัวเลือกอย่างตรงไปตรงมา และประสานงานทุกขั้นตอน\n\nหน้านี้เป็นข้อความตัวอย่าง ข้อมูลโปรไฟล์บริษัทฉบับจริงจะนำมาใส่ที่นี่",
+    "vision_title": "วิสัยทัศน์",
+    "vision": "เป็นพันธมิตรด้านการขนส่งสินค้าที่ธุรกิจระหว่างประเทศไว้วางใจได้",
+    "mission_title": "พันธกิจ",
+    "mission": "ทำให้การขนส่งระหว่างประเทศง่ายขึ้นด้วยการสื่อสารที่ชัดเจน ตัวเลือกที่ใช้ได้จริง และการประสานงานอย่างรอบคอบ",
+    "philosophy_title": "ปรัชญาการทำธุรกิจ",
+    "philosophy_items": [
+      {
+        "title": "ความน่าเชื่อถือ",
+        "body": "เราทำตามที่บอก และแจ้งให้ทราบล่วงหน้าเมื่อแผนมีการเปลี่ยนแปลง"
+      },
+      {
+        "title": "ความโปร่งใส",
+        "body": "เราอธิบายตัวเลือก เงื่อนไข และค่าใช้จ่ายอย่างชัดเจนก่อนที่คุณจะตัดสินใจ"
+      },
+      {
+        "title": "การเป็นพันธมิตร",
+        "body": "เรามุ่งสร้างความสัมพันธ์ในการทำงานระยะยาวบนพื้นฐานของความไว้วางใจ"
+      }
+    ],
+    "why_title": "ทำไมต้องทำงานกับเรา",
+    "why_items": [
+      {
+        "title": "เน้นงานขนส่งสินค้า",
+        "body": "การขนส่งสินค้าทางอากาศ ทางเรือ และทางบก คืองานของเรา"
+      },
+      {
+        "title": "บริการตรงไปตรงมา",
+        "body": "คำตอบที่เข้าใจง่าย และทีมงานทีมเดียวที่ติดต่อด้วย"
+      },
+      {
+        "title": "เหมาะกับสินค้าของคุณ",
+        "body": "คำแนะนำที่อิงจากสินค้าที่คุณส่ง ไม่ใช่แพ็กเกจแบบเดียวสำหรับทุกคน"
+      },
+      {
+        "title": "พร้อมพูดคุย",
+        "body": "ส่งความต้องการของคุณมา แล้วเราจะตอบกลับพร้อมใบเสนอราคา"
+      }
+    ],
+    "cta_title": "มาคุยเรื่องการขนส่งของคุณกัน",
+    "cta_button": "ขอใบเสนอราคา"
+  }
+}

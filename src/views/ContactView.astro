@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+import ContactCards from '../components/ContactCards.astro';
+import type { Lang } from '../i18n/ui';
+import { data } from '../lib/content';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = data.contact[lang];
+---
+<Base lang={lang} title={c.seo_title} description={c.seo_description} path="/contact/" quoteBar={false}>
+  <PageHero title={c.title} intro={c.intro} />
+  <section class="section">
+    <div class="wrap form-layout">
+      <InquiryForm lang={lang} kind="contact" />
+      <div class="stack"><ContactCards lang={lang} /><p class="meta" style="margin-top:16px">{c.hours}</p></div>
+    </div>
+  </section>
+</Base>

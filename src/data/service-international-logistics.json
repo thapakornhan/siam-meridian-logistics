@@ -1,0 +1,110 @@
+{
+  "slug": "international-logistics",
+  "icon": "globe",
+  "en": {
+    "seo_title": "International Logistics Solutions",
+    "seo_description": "Import and export coordination and multi-mode logistics planning from Siam Meridian Logistics, Bangkok.",
+    "title": "International Logistics Solutions",
+    "summary": "Import and export coordination, and routes that combine transport modes.",
+    "overview": "Some shipments do not fit neatly into one mode of transport. Siam Meridian Logistics helps plan international routes that combine air, sea and land freight, and coordinates the import and export steps around them.\n\nStart with what you need to move and where. We will propose an approach that fits your cargo, schedule and budget.",
+    "benefits": [
+      {
+        "title": "Routes built around your cargo",
+        "body": "Combine modes where it makes sense."
+      },
+      {
+        "title": "Import and export coordination",
+        "body": "Help with the steps and paperwork on both ends."
+      },
+      {
+        "title": "One coordinating team",
+        "body": "A single point of contact across the whole shipment."
+      },
+      {
+        "title": "Practical advice",
+        "body": "Options explained plainly so you can decide."
+      }
+    ],
+    "process": [
+      {
+        "title": "Discuss your needs",
+        "body": "Tell us about your cargo, route and timing."
+      },
+      {
+        "title": "Plan the route",
+        "body": "We outline the options and prepare a quotation."
+      },
+      {
+        "title": "Coordinate each leg",
+        "body": "We arrange bookings, documents and handovers."
+      },
+      {
+        "title": "Delivery and follow-up",
+        "body": "We keep you informed until the cargo is delivered."
+      }
+    ],
+    "suitable_title": "Suitable for",
+    "suitable": [
+      "Shipments that combine air, sea and land legs",
+      "Importers and exporters needing coordination support",
+      "Businesses without an in-house logistics team",
+      "Cargo with specific timing or handling needs",
+      "Companies comparing several routing options"
+    ],
+    "cta_title": "Discuss your logistics needs",
+    "cta_button": "Request a quote"
+  },
+  "th": {
+    "seo_title": "โซลูชันโลจิสติกส์ระหว่างประเทศ",
+    "seo_description": "ประสานงานนำเข้าและส่งออก และวางแผนการขนส่งหลายรูปแบบ จาก สยาม เมริเดียน โลจิสติกส์ กรุงเทพมหานคร",
+    "title": "โซลูชันโลจิสติกส์ระหว่างประเทศ",
+    "summary": "ประสานงานนำเข้า ส่งออก และเส้นทางที่ผสมผสานการขนส่งหลายรูปแบบ",
+    "overview": "สินค้าบางประเภทไม่เหมาะกับการขนส่งรูปแบบเดียว สยาม เมริเดียน โลจิสติกส์ ช่วยวางแผนเส้นทางระหว่างประเทศที่ผสมผสานการขนส่งทางอากาศ ทางเรือ และทางบก พร้อมประสานงานขั้นตอนนำเข้าและส่งออกที่เกี่ยวข้อง\n\nเริ่มจากสิ่งที่คุณต้องการขนส่งและปลายทาง แล้วเราจะเสนอแนวทางที่เหมาะกับสินค้า กำหนดเวลา และงบประมาณของคุณ",
+    "benefits": [
+      {
+        "title": "เส้นทางที่ออกแบบตามสินค้า",
+        "body": "ผสมผสานรูปแบบการขนส่งเมื่อเหมาะสม"
+      },
+      {
+        "title": "ประสานงานนำเข้าและส่งออก",
+        "body": "ช่วยดูแลขั้นตอนและเอกสารทั้งสองฝั่ง"
+      },
+      {
+        "title": "ทีมประสานงานเดียว",
+        "body": "ติดต่อที่จุดเดียวตลอดการขนส่ง"
+      },
+      {
+        "title": "คำแนะนำที่ใช้ได้จริง",
+        "body": "อธิบายตัวเลือกอย่างเข้าใจง่ายเพื่อให้คุณตัดสินใจได้"
+      }
+    ],
+    "process": [
+      {
+        "title": "พูดคุยความต้องการ",
+        "body": "บอกเราเกี่ยวกับสินค้า เส้นทาง และกำหนดเวลา"
+      },
+      {
+        "title": "วางแผนเส้นทาง",
+        "body": "เราสรุปตัวเลือกและจัดทำใบเสนอราคา"
+      },
+      {
+        "title": "ประสานงานแต่ละช่วง",
+        "body": "เราดำเนินการจอง เอกสาร และการส่งมอบ"
+      },
+      {
+        "title": "ส่งถึงและติดตามผล",
+        "body": "เราแจ้งความคืบหน้าจนกว่าสินค้าจะถึงปลายทาง"
+      }
+    ],
+    "suitable_title": "เหมาะสำหรับ",
+    "suitable": [
+      "การส่งที่ผสมผสานทางอากาศ ทางเรือ และทางบก",
+      "ผู้นำเข้าและผู้ส่งออกที่ต้องการความช่วยเหลือด้านการประสานงาน",
+      "ธุรกิจที่ไม่มีทีมโลจิสติกส์ภายในองค์กร",
+      "สินค้าที่มีข้อกำหนดเรื่องเวลาหรือการจัดการเฉพาะ",
+      "บริษัทที่กำลังเปรียบเทียบเส้นทางการขนส่งหลายทางเลือก"
+    ],
+    "cta_title": "ปรึกษาเรื่องโลจิสติกส์ของคุณ",
+    "cta_button": "ขอใบเสนอราคา"
+  }
+}

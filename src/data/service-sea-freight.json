@@ -1,0 +1,110 @@
+{
+  "slug": "sea-freight",
+  "icon": "ship",
+  "en": {
+    "seo_title": "Sea Freight",
+    "seo_description": "Sea freight forwarding for large and heavy cargo from Siam Meridian Logistics, Bangkok.",
+    "title": "Sea Freight",
+    "summary": "Large and heavy cargo moved by sea.",
+    "overview": "Sea freight is a common choice for large or heavy cargo that does not need to arrive urgently. Siam Meridian Logistics helps businesses plan ocean shipments and coordinate the steps from booking to handover.\n\nWe can advise on whether a full container or a shared load suits your cargo, and on the documents involved.",
+    "benefits": [
+      {
+        "title": "Suited to large volumes",
+        "body": "A practical option for bulky or heavy cargo."
+      },
+      {
+        "title": "Cost-conscious",
+        "body": "Often chosen when budget matters more than speed."
+      },
+      {
+        "title": "Container guidance",
+        "body": "Advice on full or shared container loads."
+      },
+      {
+        "title": "Coordinated paperwork",
+        "body": "Guidance on shipping and customs documents."
+      }
+    ],
+    "process": [
+      {
+        "title": "Share your details",
+        "body": "Tell us about your cargo, quantity and route."
+      },
+      {
+        "title": "Review and quote",
+        "body": "We recommend a suitable approach and send a quotation."
+      },
+      {
+        "title": "Booking and documents",
+        "body": "We arrange the booking and help prepare documents."
+      },
+      {
+        "title": "Delivery and follow-up",
+        "body": "We keep you informed until the cargo arrives."
+      }
+    ],
+    "suitable_title": "Suitable for",
+    "suitable": [
+      "Large or heavy shipments",
+      "Cargo that is not time-critical",
+      "Regular or one-off container shipments",
+      "Businesses comparing cost against transit time",
+      "Importers and exporters who want help with the process"
+    ],
+    "cta_title": "Get a quote for sea freight",
+    "cta_button": "Request a sea freight quote"
+  },
+  "th": {
+    "seo_title": "ขนส่งทางเรือ",
+    "seo_description": "บริการจัดการขนส่งสินค้าทางเรือสำหรับสินค้าปริมาณมากและสินค้าหนัก จาก สยาม เมริเดียน โลจิสติกส์ กรุงเทพมหานคร",
+    "title": "ขนส่งทางเรือ",
+    "summary": "ขนส่งสินค้าปริมาณมากและสินค้าหนักทางเรือ",
+    "overview": "การขนส่งทางเรือเป็นตัวเลือกที่พบบ่อยสำหรับสินค้าขนาดใหญ่หรือน้ำหนักมากที่ไม่ได้ต้องการความเร่งด่วน สยาม เมริเดียน โลจิสติกส์ ช่วยธุรกิจวางแผนการขนส่งทางเรือและประสานงานตั้งแต่การจองจนถึงการส่งมอบ\n\nเราให้คำแนะนำได้ว่าสินค้าของคุณเหมาะกับตู้คอนเทนเนอร์เต็มตู้หรือแบบรวมตู้ รวมถึงเอกสารที่เกี่ยวข้อง",
+    "benefits": [
+      {
+        "title": "เหมาะกับสินค้าปริมาณมาก",
+        "body": "ตัวเลือกที่ใช้ได้จริงสำหรับสินค้าขนาดใหญ่หรือหนัก"
+      },
+      {
+        "title": "คำนึงถึงต้นทุน",
+        "body": "มักถูกเลือกเมื่องบประมาณสำคัญกว่าความเร็ว"
+      },
+      {
+        "title": "คำแนะนำเรื่องตู้คอนเทนเนอร์",
+        "body": "ให้คำแนะนำเรื่องการส่งแบบเต็มตู้หรือรวมตู้"
+      },
+      {
+        "title": "ประสานงานเอกสาร",
+        "body": "ให้คำแนะนำเรื่องเอกสารการขนส่งและศุลกากร"
+      }
+    ],
+    "process": [
+      {
+        "title": "แจ้งรายละเอียด",
+        "body": "บอกเราเกี่ยวกับสินค้า ปริมาณ และเส้นทาง"
+      },
+      {
+        "title": "พิจารณาและเสนอราคา",
+        "body": "เราแนะนำแนวทางที่เหมาะสมและส่งใบเสนอราคา"
+      },
+      {
+        "title": "จองและจัดเตรียมเอกสาร",
+        "body": "เราดำเนินการจองและช่วยเตรียมเอกสาร"
+      },
+      {
+        "title": "ส่งถึงและติดตามผล",
+        "body": "เราแจ้งความคืบหน้าจนกว่าสินค้าจะถึงปลายทาง"
+      }
+    ],
+    "suitable_title": "เหมาะสำหรับ",
+    "suitable": [
+      "สินค้าขนาดใหญ่หรือน้ำหนักมาก",
+      "สินค้าที่ไม่ได้เร่งด่วน",
+      "การส่งตู้คอนเทนเนอร์เป็นประจำหรือครั้งคราว",
+      "ธุรกิจที่เปรียบเทียบต้นทุนกับระยะเวลาขนส่ง",
+      "ผู้นำเข้าและผู้ส่งออกที่ต้องการความช่วยเหลือในขั้นตอนต่าง ๆ"
+    ],
+    "cta_title": "ขอใบเสนอราคาขนส่งทางเรือ",
+    "cta_button": "ขอใบเสนอราคาขนส่งทางเรือ"
+  }
+}
