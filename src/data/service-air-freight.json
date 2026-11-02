@@ -2,29 +2,17 @@
   "slug": "air-freight",
   "icon": "plane",
   "en": {
-    "seo_title": "Air Freight",
-    "seo_description": "Air freight forwarding for time-sensitive and high-value cargo from Siam Meridian Logistics, Bangkok.",
-    "title": "Air Freight",
+    "suitable_title": "Suitable for",
+    "cta_button": "Request an air freight quote",
     "summary": "Time-sensitive and high-value cargo moved by air.",
-    "overview": "Air freight is the fastest way to move cargo over long distances. Siam Meridian Logistics arranges air shipments for businesses that must meet tight schedules or move goods that are valuable, fragile or urgent.\n\nWe help you compare options, prepare the required documents and keep you informed about what happens next.",
-    "benefits": [
-      {
-        "title": "Speed for urgent cargo",
-        "body": "Suited to shipments where time matters most."
-      },
-      {
-        "title": "Good for high-value goods",
-        "body": "A common choice for valuable or delicate items."
-      },
-      {
-        "title": "Scheduled departures",
-        "body": "Plan around published flight schedules."
-      },
-      {
-        "title": "Coordinated paperwork",
-        "body": "Guidance on the documents your shipment needs."
-      }
+    "suitable": [
+      "Urgent or time-sensitive shipments",
+      "Goods with high value for their weight",
+      "Samples, parts and components",
+      "Cargo that cannot wait for longer transit times",
+      "Businesses new to air shipping that want guidance"
     ],
+    "cta_title": "Get a quote for air freight",
     "process": [
       {
         "title": "Share your details",
@@ -43,41 +31,41 @@
         "body": "We keep you informed until the cargo is delivered."
       }
     ],
-    "suitable_title": "Suitable for",
-    "suitable": [
-      "Urgent or time-sensitive shipments",
-      "Goods with high value for their weight",
-      "Samples, parts and components",
-      "Cargo that cannot wait for longer transit times",
-      "Businesses new to air shipping that want guidance"
-    ],
-    "cta_title": "Get a quote for air freight",
-    "cta_button": "Request an air freight quote"
-  },
-  "th": {
-    "seo_title": "ขนส่งทางอากาศ",
-    "seo_description": "บริการจัดการขนส่งสินค้าทางอากาศสำหรับสินค้าเร่งด่วนและมูลค่าสูง จาก สยาม เมริเดียน โลจิสติกส์ กรุงเทพมหานคร",
-    "title": "ขนส่งทางอากาศ",
-    "summary": "ขนส่งสินค้าเร่งด่วนและสินค้ามูลค่าสูงทางอากาศ",
-    "overview": "การขนส่งทางอากาศเป็นวิธีที่เร็วที่สุดในการขนส่งสินค้าระยะไกล สยาม เมริเดียน โลจิสติกส์ จัดการขนส่งทางอากาศสำหรับธุรกิจที่ต้องส่งตามกำหนดเวลาที่กระชั้นชิด หรือสินค้าที่มีมูลค่าสูง เปราะบาง หรือเร่งด่วน\n\nเราช่วยเปรียบเทียบตัวเลือก เตรียมเอกสารที่จำเป็น และแจ้งความคืบหน้าให้คุณทราบ",
+    "seo_title": "Air Freight",
+    "title": "Air Freight",
+    "overview": "Air freight is the fastest way to move cargo over long distances. Siam Meridian Logistics arranges air shipments for businesses that must meet tight schedules or move goods that are valuable, fragile or urgent.\n\nWe help you compare options, prepare the required documents and keep you informed about what happens next.",
+    "seo_description": "Air freight forwarding for time-sensitive and high-value cargo from Siam Meridian Logistics, Bangkok.",
     "benefits": [
       {
-        "title": "รวดเร็วสำหรับสินค้าเร่งด่วน",
-        "body": "เหมาะกับการส่งที่เวลาสำคัญที่สุด"
+        "title": "Speed for urgent shipment",
+        "body": "Suited to shipments where time matters most."
       },
       {
-        "title": "เหมาะกับสินค้ามูลค่าสูง",
-        "body": "เป็นตัวเลือกที่พบบ่อยสำหรับสินค้ามีค่าหรือเปราะบาง"
+        "title": "Good for high-value goods",
+        "body": "A common choice for valuable or delicate items."
       },
       {
-        "title": "มีเที่ยวบินตามตาราง",
-        "body": "วางแผนตามตารางเที่ยวบินที่ประกาศไว้"
+        "title": "Scheduled departures",
+        "body": "Plan around published flight schedules."
       },
       {
-        "title": "ประสานงานเอกสาร",
-        "body": "ให้คำแนะนำเรื่องเอกสารที่ใช้สำหรับการส่งสินค้า"
+        "title": "Coordinated paperwork",
+        "body": "Guidance on the documents your shipment needs."
       }
+    ]
+  },
+  "th": {
+    "suitable_title": "เหมาะสำหรับ",
+    "cta_button": "ขอใบเสนอราคาขนส่งทางอากาศ",
+    "summary": "ขนส่งสินค้าเร่งด่วนและสินค้ามูลค่าสูงทางอากาศ",
+    "suitable": [
+      "การส่งสินค้าเร่งด่วนหรือมีกำหนดเวลา",
+      "สินค้ามูลค่าสูงเมื่อเทียบกับน้ำหนัก",
+      "ตัวอย่างสินค้า อะไหล่ และชิ้นส่วน",
+      "สินค้าที่รอการขนส่งนานไม่ได้",
+      "ธุรกิจที่เพิ่งเริ่มส่งทางอากาศและต้องการคำแนะนำ"
     ],
+    "cta_title": "ขอใบเสนอราคาขนส่งทางอากาศ",
     "process": [
       {
         "title": "แจ้งรายละเอียด",
@@ -96,15 +84,27 @@
         "body": "เราแจ้งความคืบหน้าจนกว่าสินค้าจะถึงปลายทาง"
       }
     ],
-    "suitable_title": "เหมาะสำหรับ",
-    "suitable": [
-      "การส่งสินค้าเร่งด่วนหรือมีกำหนดเวลา",
-      "สินค้ามูลค่าสูงเมื่อเทียบกับน้ำหนัก",
-      "ตัวอย่างสินค้า อะไหล่ และชิ้นส่วน",
-      "สินค้าที่รอการขนส่งนานไม่ได้",
-      "ธุรกิจที่เพิ่งเริ่มส่งทางอากาศและต้องการคำแนะนำ"
-    ],
-    "cta_title": "ขอใบเสนอราคาขนส่งทางอากาศ",
-    "cta_button": "ขอใบเสนอราคาขนส่งทางอากาศ"
+    "seo_title": "ขนส่งทางอากาศ",
+    "title": "ขนส่งทางอากาศ",
+    "overview": "การขนส่งทางอากาศเป็นวิธีที่เร็วที่สุดในการขนส่งสินค้าระยะไกล สยาม เมริเดียน โลจิสติกส์ จัดการขนส่งทางอากาศสำหรับธุรกิจที่ต้องส่งตามกำหนดเวลาที่กระชั้นชิด หรือสินค้าที่มีมูลค่าสูง เปราะบาง หรือเร่งด่วน\n\nเราช่วยเปรียบเทียบตัวเลือก เตรียมเอกสารที่จำเป็น และแจ้งความคืบหน้าให้คุณทราบ",
+    "seo_description": "บริการจัดการขนส่งสินค้าทางอากาศสำหรับสินค้าเร่งด่วนและมูลค่าสูง จาก สยาม เมริเดียน โลจิสติกส์ กรุงเทพมหานคร",
+    "benefits": [
+      {
+        "title": "รวดเร็วสำหรับสินค้าเร่งด่วน",
+        "body": "เหมาะกับการส่งที่เวลาสำคัญที่สุด"
+      },
+      {
+        "title": "เหมาะกับสินค้ามูลค่าสูง",
+        "body": "เป็นตัวเลือกที่พบบ่อยสำหรับสินค้ามีค่าหรือเปราะบาง"
+      },
+      {
+        "title": "มีเที่ยวบินตามตาราง",
+        "body": "วางแผนตามตารางเที่ยวบินที่ประกาศไว้"
+      },
+      {
+        "title": "ประสานงานเอกสาร",
+        "body": "ให้คำแนะนำเรื่องเอกสารที่ใช้สำหรับการส่งสินค้า"
+      }
+    ]
   }
 }
