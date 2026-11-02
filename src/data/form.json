@@ -1,0 +1,50 @@
+{
+  "quote": {
+    "company": {
+      "show": true,
+      "required": true
+    },
+    "phone": {
+      "show": true,
+      "required": true
+    },
+    "service": {
+      "show": true,
+      "required": true
+    },
+    "origin": {
+      "show": true,
+      "required": true
+    },
+    "destination": {
+      "show": true,
+      "required": true
+    },
+    "cargo": {
+      "show": true,
+      "required": true
+    },
+    "weight": {
+      "show": true,
+      "required": false
+    },
+    "volume": {
+      "show": true,
+      "required": false
+    },
+    "extra": {
+      "show": true,
+      "required": false
+    }
+  },
+  "contact": {
+    "company": {
+      "show": true,
+      "required": false
+    },
+    "phone": {
+      "show": true,
+      "required": false
+    }
+  }
+}

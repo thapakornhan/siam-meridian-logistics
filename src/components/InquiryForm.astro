@@ -1,14 +1,42 @@
 ---
 import { ui, type Lang } from '../i18n/ui';
-import { data } from '../lib/content';
+import { data, services, formSettings } from '../lib/content';
 interface Props { lang: Lang; kind: 'quote' | 'contact' }
 const { lang, kind } = Astro.props;
 const t = ui[lang];
 const f = t.form;
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
-const email = data.contact.email;
-const msgs = { ...f.err, errorTitle: f.errorTitle, sending: f.sending, email };
+const msgs = { ...f.err, errorTitle: f.errorTitle, sending: f.sending, email: data.contact.email };
 const isQuote = kind === 'quote';
+
+type Def = { name: string; type?: 'input' | 'select' | 'textarea'; full?: boolean; locked?: boolean; max: number; label: string; ph?: string; attrs?: Record<string, string> };
+const quoteDefs: Def[] = [
+  { name: 'name', locked: true, max: 120, label: f.fullName, attrs: { autocomplete: 'name' } },
+  { name: 'company', max: 160, label: f.company, attrs: { autocomplete: 'organization' } },
+  { name: 'email', locked: true, max: 160, label: f.email, attrs: { type: 'email', autocomplete: 'email', inputmode: 'email' } },
+  { name: 'phone', max: 40, label: f.phone, attrs: { type: 'tel', autocomplete: 'tel', inputmode: 'tel' } },
+  { name: 'service', type: 'select', full: true, max: 40, label: f.serviceType },
+  { name: 'origin', max: 160, label: f.origin, ph: f.ph.origin },
+  { name: 'destination', max: 160, label: f.destination, ph: f.ph.destination },
+  { name: 'cargo', type: 'textarea', full: true, max: 2000, label: f.cargo, ph: f.ph.cargo },
+  { name: 'weight', max: 80, label: f.weight, ph: f.ph.weight },
+  { name: 'volume', max: 80, label: f.volume, ph: f.ph.volume },
+  { name: 'extra', type: 'textarea', full: true, max: 2000, label: f.extra, ph: f.ph.extra }
+];
+const contactDefs: Def[] = [
+  { name: 'name', locked: true, max: 120, label: f.fullName, attrs: { autocomplete: 'name' } },
+  { name: 'company', max: 160, label: f.company, attrs: { autocomplete: 'organization' } },
+  { name: 'email', locked: true, max: 160, label: f.email, attrs: { type: 'email', autocomplete: 'email', inputmode: 'email' } },
+  { name: 'phone', max: 40, label: f.phone, attrs: { type: 'tel', autocomplete: 'tel', inputmode: 'tel' } },
+  { name: 'message', type: 'textarea', full: true, locked: true, max: 3000, label: f.message }
+];
+const cfg = (formSettings as any)[kind] as Record<string, { show: boolean; required: boolean }>;
+const fields = (isQuote ? quoteDefs : contactDefs)
+  .map((d) => ({ ...d, show: d.locked ? true : cfg[d.name]?.show !== false, required: d.locked ? true : !!cfg[d.name]?.required }))
+  .filter((d) => d.show);
+const on = new Set<string>([...services.map((s) => s.slug), 'other']);
+const options = Object.entries(f.serviceOptions).filter(([v]) => on.has(v));
+const id = (n: string) => `${kind}-${n}`;
 ---
 <div class="form-card" data-form-wrap>
   <div class="notice notice--ok" data-success hidden role="status" tabindex="-1">
@@ -28,51 +56,22 @@ const isQuote = kind === 'quote';
     <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
 
     <div class="form-grid">
-      <div class="field">
-        <label for={`${kind}-name`}>{f.fullName}</label>
-        <input id={`${kind}-name`} name="name" required maxlength="120" autocomplete="name" aria-describedby={`${kind}-name-err`} />
-        <span class="field-error" id={`${kind}-name-err`}></span>
-      </div>
-      <div class="field">
-        <label for={`${kind}-company`}>{f.company}{!isQuote && <span class="opt"> ({f.optional})</span>}</label>
-        <input id={`${kind}-company`} name="company" required={isQuote} maxlength="160" autocomplete="organization" aria-describedby={`${kind}-company-err`} />
-        <span class="field-error" id={`${kind}-company-err`}></span>
-      </div>
-      <div class="field">
-        <label for={`${kind}-email`}>{f.email}</label>
-        <input id={`${kind}-email`} name="email" type="email" required maxlength="160" autocomplete="email" inputmode="email" aria-describedby={`${kind}-email-err`} />
-        <span class="field-error" id={`${kind}-email-err`}></span>
-      </div>
-      <div class="field">
-        <label for={`${kind}-phone`}>{f.phone}{!isQuote && <span class="opt"> ({f.optional})</span>}</label>
-        <input id={`${kind}-phone`} name="phone" type="tel" required={isQuote} maxlength="40" autocomplete="tel" inputmode="tel" aria-describedby={`${kind}-phone-err`} />
-        <span class="field-error" id={`${kind}-phone-err`}></span>
-      </div>
-
-      {isQuote ? (
-        <>
-          <div class="field full">
-            <label for="q-service">{f.serviceType}</label>
-            <select id="q-service" name="service" required aria-describedby="q-service-err">
+      {fields.map((d) => (
+        <div class={`field${d.full ? ' full' : ''}`}>
+          <label for={id(d.name)}>{d.label}{!d.required && <span class="opt"> ({f.optional})</span>}</label>
+          {d.type === 'select' ? (
+            <select id={id(d.name)} name={d.name} required={d.required} aria-describedby={`${id(d.name)}-err`}>
               <option value="">{f.selectService}</option>
-              {Object.entries(f.serviceOptions).map(([v, l]) => <option value={v}>{l}</option>)}
+              {options.map(([v, l]) => <option value={v}>{l}</option>)}
             </select>
-            <span class="field-error" id="q-service-err"></span>
-          </div>
-          <div class="field"><label for="q-origin">{f.origin}</label><input id="q-origin" name="origin" required maxlength="160" placeholder={f.ph.origin} aria-describedby="q-origin-err" /><span class="field-error" id="q-origin-err"></span></div>
-          <div class="field"><label for="q-destination">{f.destination}</label><input id="q-destination" name="destination" required maxlength="160" placeholder={f.ph.destination} aria-describedby="q-destination-err" /><span class="field-error" id="q-destination-err"></span></div>
-          <div class="field full"><label for="q-cargo">{f.cargo}</label><textarea id="q-cargo" name="cargo" required maxlength="2000" placeholder={f.ph.cargo} aria-describedby="q-cargo-err"></textarea><span class="field-error" id="q-cargo-err"></span></div>
-          <div class="field"><label for="q-weight">{f.weight} <span class="opt">({f.optional})</span></label><input id="q-weight" name="weight" maxlength="80" placeholder={f.ph.weight} /></div>
-          <div class="field"><label for="q-volume">{f.volume} <span class="opt">({f.optional})</span></label><input id="q-volume" name="volume" maxlength="80" placeholder={f.ph.volume} /></div>
-          <div class="field full"><label for="q-extra">{f.extra} <span class="opt">({f.optional})</span></label><textarea id="q-extra" name="extra" maxlength="2000" placeholder={f.ph.extra}></textarea></div>
-        </>
-      ) : (
-        <div class="field full">
-          <label for="c-message">{f.message}</label>
-          <textarea id="c-message" name="message" required maxlength="3000" aria-describedby="c-message-err"></textarea>
-          <span class="field-error" id="c-message-err"></span>
+          ) : d.type === 'textarea' ? (
+            <textarea id={id(d.name)} name={d.name} required={d.required} maxlength={d.max} placeholder={d.ph} aria-describedby={`${id(d.name)}-err`}></textarea>
+          ) : (
+            <input id={id(d.name)} name={d.name} required={d.required} maxlength={d.max} placeholder={d.ph} aria-describedby={`${id(d.name)}-err`} {...(d.attrs ?? {})} />
+          )}
+          <span class="field-error" id={`${id(d.name)}-err`}></span>
         </div>
-      )}
+      ))}
     </div>
 
     <div class="turnstile">

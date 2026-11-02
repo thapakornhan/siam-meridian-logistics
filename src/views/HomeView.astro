@@ -14,6 +14,7 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = data.home[lang];
 const heroImage = data.home.hero_image;
+const intlOn = services.some((s) => s.slug === 'international-logistics');
 ---
 <Base lang={lang} title={c.seo_title} description={c.seo_description} path="/" jsonLd quoteBar>
   <section class="hero">
@@ -36,7 +37,7 @@ const heroImage = data.home.hero_image;
   <section class="section" aria-labelledby="svc-h">
     <div class="wrap">
       <div class="section-head"><span class="rule"></span><h2 id="svc-h">{c.services_title}</h2><p>{c.services_intro}</p></div>
-      <div class="grid grid-3">{services.slice(0, 3).map((s) => <ServiceCard svc={s} lang={lang} />)}</div>
+      <div class="grid grid-3">{services.filter((s) => s.slug !== 'international-logistics').map((s) => <ServiceCard svc={s} lang={lang} />)}</div>
     </div>
   </section>
 
@@ -47,7 +48,7 @@ const heroImage = data.home.hero_image;
           <span class="rule"></span>
           <h2 id="sol-h">{c.solutions_title}</h2>
           <p>{c.solutions_body}</p>
-          <a class="btn btn--gold" style="margin-top:12px" href={`${href(lang, '/get-a-quote/')}?service=international-logistics`}>{c.solutions_cta}</a>
+          <a class="btn btn--gold" style="margin-top:12px" href={`${href(lang, '/get-a-quote/')}${intlOn ? '?service=international-logistics' : ''}`}>{c.solutions_cta}</a>
         </div>
         <div class="modes" aria-hidden="true"><span><Icon name="plane" /></span><span><Icon name="globe" /></span><span><Icon name="truck" /></span><span><Icon name="ship" /></span></div>
       </div>

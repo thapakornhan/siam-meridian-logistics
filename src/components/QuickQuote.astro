@@ -1,10 +1,12 @@
 ---
 import { ui, type Lang } from '../i18n/ui';
 import { href } from '../lib/i18n';
+import { services } from '../lib/content';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = ui[lang];
-const opts = Object.entries(t.form.serviceOptions);
+const on = new Set<string>([...services.map((s) => s.slug), 'other']);
+const opts = Object.entries(t.form.serviceOptions).filter(([v]) => on.has(v));
 ---
 <form class="glass" method="get" action={href(lang, '/get-a-quote/')} aria-labelledby="qq-title">
   <h2 id="qq-title">{t.quickQuote.title}</h2>

@@ -5,6 +5,7 @@ import quote from '../data/quote.json';
 import news from '../data/news.json';
 import privacy from '../data/privacy.json';
 import settings from '../data/settings.json';
+import formCfg from '../data/form.json';
 import air from '../data/service-air-freight.json';
 import sea from '../data/service-sea-freight.json';
 import land from '../data/service-land-freight.json';
@@ -12,9 +13,12 @@ import intl from '../data/service-international-logistics.json';
 import type { Lang } from '../i18n/ui';
 
 export const data = { home, about, contact, quote, news, privacy, settings };
-export const services = [air, sea, land, intl];
-export type Service = (typeof services)[number];
-export const getService = (slug: string) => services.find((s) => s.slug === slug)!;
+const allServices = [air, sea, land, intl];
+/** Services switched on in the CMS ("Show this service on the website"). Hidden ones are not built at all. */
+export const services = allServices.filter((s) => (s as { visible?: boolean }).visible !== false);
+export type Service = (typeof allServices)[number];
+export const getService = (slug: string) => allServices.find((s) => s.slug === slug)!;
+export const formSettings = formCfg;
 
 /* ---------- News (Markdown files managed by the CMS) ---------- */
 type MdModule = { frontmatter: Record<string, any>; Content: any };

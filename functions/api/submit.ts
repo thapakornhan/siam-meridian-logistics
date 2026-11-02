@@ -9,6 +9,8 @@
  * The request only succeeds if at least one delivery method worked, so no enquiry is silently lost.
  */
 
+import formCfg from '../../src/data/form.json';
+
 interface KV { put(key: string, value: string, opts?: { expirationTtl?: number }): Promise<void> }
 interface Env {
   TURNSTILE_SECRET_KEY?: string;
@@ -29,18 +31,21 @@ const SERVICE_LABEL: Record<string, string> = {
 };
 
 type Rule = { max: number; required?: boolean };
-const RULES: Record<'quote' | 'contact', Record<string, Rule>> = {
-  quote: {
-    name: { max: 120, required: true }, company: { max: 160, required: true }, email: { max: 160, required: true },
-    phone: { max: 40, required: true }, service: { max: 40, required: true }, origin: { max: 160, required: true },
-    destination: { max: 160, required: true }, cargo: { max: 2000, required: true }, weight: { max: 80 },
-    volume: { max: 80 }, extra: { max: 2000 }
-  },
-  contact: {
-    name: { max: 120, required: true }, company: { max: 160 }, email: { max: 160, required: true },
-    phone: { max: 40 }, message: { max: 3000, required: true }
-  }
+// Same settings file the website uses (edited in the CMS under "Quote & contact form fields").
+const MAX: Record<'quote' | 'contact', Record<string, number>> = {
+  quote: { name: 120, company: 160, email: 160, phone: 40, service: 40, origin: 160, destination: 160, cargo: 2000, weight: 80, volume: 80, extra: 2000 },
+  contact: { name: 120, company: 160, email: 160, phone: 40, message: 3000 }
 };
+const ALWAYS = new Set(['name', 'email', 'message']);
+function rulesFor(kind: 'quote' | 'contact'): Record<string, Rule> {
+  const cfg = (formCfg as Record<string, Record<string, { show: boolean; required: boolean }>>)[kind];
+  const out: Record<string, Rule> = {};
+  for (const [field, max] of Object.entries(MAX[kind])) {
+    if (ALWAYS.has(field)) out[field] = { max, required: true };
+    else if (cfg[field]?.show !== false) out[field] = { max, required: !!cfg[field]?.required };
+  }
+  return out;
+}
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const escapeHtml = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
@@ -63,7 +68,7 @@ export const onRequestPost = async ({ request, env }: Ctx): Promise<Response> =>
   // 4. Validate
   const kind = str('kind') === 'contact' ? 'contact' : 'quote';
   const lang = str('lang') === 'th' ? 'th' : 'en';
-  const rules = RULES[kind];
+  const rules = rulesFor(kind);
   const data: Record<string, string> = {};
   const bad: string[] = [];
   for (const [field, rule] of Object.entries(rules)) {
@@ -73,7 +78,7 @@ export const onRequestPost = async ({ request, env }: Ctx): Promise<Response> =>
   }
   if (data.email && !EMAIL_RE.test(data.email)) bad.push('email');
   if (data.phone && data.phone.replace(/\D/g, '').length < 6) bad.push('phone');
-  if (kind === 'quote' && !SERVICES.includes(data.service)) bad.push('service');
+  if (data.service && !SERVICES.includes(data.service)) bad.push('service');
   if (bad.length) return json({ ok: false, code: 'validation', fields: [...new Set(bad)] }, 400);
 
   // 5. Turnstile (fails closed if the secret is not configured)
@@ -97,7 +102,7 @@ export const onRequestPost = async ({ request, env }: Ctx): Promise<Response> =>
   };
   const rows = Object.keys(rules).filter((k) => data[k]).map((k) => [label[k], k === 'service' ? SERVICE_LABEL[data[k]] : data[k]] as const);
   const subject = oneLine(kind === 'quote'
-    ? `[Quote request] ${SERVICE_LABEL[data.service]} – ${data.company} (${data.origin} → ${data.destination})`
+    ? `[Quote request] ${SERVICE_LABEL[data.service] || 'General'} – ${data.company || data.name}${data.origin && data.destination ? ` (${data.origin} → ${data.destination})` : ''}`
     : `[Website contact] ${data.name}${data.company ? ' – ' + data.company : ''}`).slice(0, 200);
   const text = rows.map(([k, v]) => `${k}: ${v}`).join('\n') + `\n\nLanguage: ${lang}\nSubmitted: ${new Date().toISOString()}`;
   const html = `<table cellpadding="8" style="font-family:Arial,sans-serif;font-size:14px;border-collapse:collapse">${rows

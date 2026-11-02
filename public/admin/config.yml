@@ -478,6 +478,176 @@ collections:
               - name: hours
                 label: Business hours note
                 widget: string
+      - name: form
+        label: Quote & contact form fields
+        file: src/data/form.json
+        fields:
+          - name: quote
+            label: Get a Quote form
+            widget: object
+            collapsed: false
+            hint: Name and email are always required. If a field is hidden, it is not asked and not required.
+            fields:
+              - name: company
+                label: Company name
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: true
+              - name: phone
+                label: Phone number
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: true
+              - name: service
+                label: Service type
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: true
+              - name: origin
+                label: Origin
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: true
+              - name: destination
+                label: Destination
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: true
+              - name: cargo
+                label: Cargo description
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: true
+              - name: weight
+                label: Estimated cargo weight
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: false
+              - name: volume
+                label: Estimated cargo volume
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: false
+              - name: extra
+                label: Additional requirements
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: false
+          - name: contact
+            label: Contact Us form
+            widget: object
+            collapsed: true
+            hint: Name, email and message are always required.
+            fields:
+              - name: company
+                label: Company name
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: false
+              - name: phone
+                label: Phone number
+                widget: object
+                collapsed: false
+                summary: "{{fields.show}}"
+                fields:
+                  - name: show
+                    label: Show this field
+                    widget: boolean
+                    default: true
+                  - name: required
+                    label: Customer must fill it in
+                    widget: boolean
+                    default: false
       - name: news_page
         label: News page text
         file: src/data/news.json
@@ -600,6 +770,11 @@ collections:
             label: Icon (do not change)
             widget: hidden
             default: plane
+          - name: visible
+            label: Show this service on the website
+            widget: boolean
+            default: true
+            hint: Turn OFF to hide the page everywhere (menu, homepage, footer, quote form, Google). The text is kept so you can turn it back on.
           - name: en
             label: English
             widget: object
@@ -744,6 +919,11 @@ collections:
             label: Icon (do not change)
             widget: hidden
             default: ship
+          - name: visible
+            label: Show this service on the website
+            widget: boolean
+            default: true
+            hint: Turn OFF to hide the page everywhere (menu, homepage, footer, quote form, Google). The text is kept so you can turn it back on.
           - name: en
             label: English
             widget: object
@@ -888,6 +1068,11 @@ collections:
             label: Icon (do not change)
             widget: hidden
             default: truck
+          - name: visible
+            label: Show this service on the website
+            widget: boolean
+            default: true
+            hint: Turn OFF to hide the page everywhere (menu, homepage, footer, quote form, Google). The text is kept so you can turn it back on.
           - name: en
             label: English
             widget: object
@@ -1032,6 +1217,11 @@ collections:
             label: Icon (do not change)
             widget: hidden
             default: globe
+          - name: visible
+            label: Show this service on the website
+            widget: boolean
+            default: true
+            hint: Turn OFF to hide the page everywhere (menu, homepage, footer, quote form, Google). The text is kept so you can turn it back on.
           - name: en
             label: English
             widget: object

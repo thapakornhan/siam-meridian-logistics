@@ -65,9 +65,14 @@ const privacy = () => [
 ];
 
 const file = (name, label, path, fields) => ({ name, label, file: path, fields });
+const toggle = (name, label, req) => ({ name, label, widget: 'object', collapsed: false, summary: '{{fields.show}}', fields: [
+  { name: 'show', label: 'Show this field', widget: 'boolean', default: true },
+  { name: 'required', label: 'Customer must fill it in', widget: 'boolean', default: req }
+] });
 const svcFile = (slug, label) => file(slug, label, `src/data/service-${slug}.json`, [
   { name: 'slug', label: 'Page address (do not change)', widget: 'hidden', default: slug },
   { name: 'icon', label: 'Icon (do not change)', widget: 'hidden', default: { 'air-freight': 'plane', 'sea-freight': 'ship', 'land-freight': 'truck', 'international-logistics': 'globe' }[slug] },
+  { name: 'visible', label: 'Show this service on the website', widget: 'boolean', default: true, hint: 'Turn OFF to hide the page everywhere (menu, homepage, footer, quote form, Google). The text is kept so you can turn it back on.' },
   ...both(service)
 ]);
 
@@ -108,6 +113,14 @@ const config = {
           s('email', 'Email address'), s('maps_url', 'Google Maps link'),
           s('maps_embed_url', 'Google Maps embed address (optional)', { required: false, hint: 'In Google Maps: Share → Embed a map → copy ONLY the address inside src="…". Leave empty to show a "View on Google Maps" button instead.' }),
           ...both(contact)
+        ]),
+        file('form', 'Quote & contact form fields', 'src/data/form.json', [
+          { name: 'quote', label: 'Get a Quote form', widget: 'object', collapsed: false, hint: 'Name and email are always required. If a field is hidden, it is not asked and not required.', fields: [
+            toggle('company', 'Company name', true), toggle('phone', 'Phone number', true), toggle('service', 'Service type', true),
+            toggle('origin', 'Origin', true), toggle('destination', 'Destination', true), toggle('cargo', 'Cargo description', true),
+            toggle('weight', 'Estimated cargo weight', false), toggle('volume', 'Estimated cargo volume', false), toggle('extra', 'Additional requirements', false)
+          ] },
+          { name: 'contact', label: 'Contact Us form', widget: 'object', collapsed: true, hint: 'Name, email and message are always required.', fields: [toggle('company', 'Company name', false), toggle('phone', 'Phone number', false)] }
         ]),
         file('news_page', 'News page text', 'src/data/news.json', both(newsPage)),
         file('privacy', 'Privacy policy', 'src/data/privacy.json', both(privacy))
