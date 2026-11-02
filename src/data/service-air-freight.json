@@ -1,6 +1,7 @@
 {
   "slug": "air-freight",
   "icon": "plane",
+  "visible": false,
   "en": {
     "suitable_title": "Suitable for",
     "cta_button": "Request an air freight quote",
