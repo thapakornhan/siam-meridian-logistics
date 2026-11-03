@@ -95,7 +95,7 @@ const newsCollection = (lang, label) => ({
 const config = {
   backend: { name: 'turbo-github', repo: settings.repo, branch: settings.branch, turbo_site_id: settings.turbo_site_id },
   local_backend: true,
-  site_url: 'https://www.sml-th.com',
+  site_url: 'https://www.siam-meridian-logistics.com',
   logo_url: '/brand/logo-sm.png',
   media_folder: 'public/uploads',
   public_folder: '/uploads',

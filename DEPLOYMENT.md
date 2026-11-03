@@ -30,7 +30,7 @@ Accounts (all free): GitHub, Cloudflare, Decap Turbo (decapcms.org/turbo), Resen
 
 | Name | Type | Value |
 |---|---|---|
-| `PUBLIC_SITE_URL` | Plain | `https://www.sml-th.com` (your real address, no trailing slash) |
+| `PUBLIC_SITE_URL` | Plain | `https://www.siam-meridian-logistics.com` (your real address, no trailing slash) |
 | `PUBLIC_TURNSTILE_SITE_KEY` | Plain | Turnstile site key (step 5) |
 | `TURNSTILE_SECRET_KEY` | **Secret** | Turnstile secret key (step 5) |
 | `RESEND_API_KEY` | **Secret** | from Resend (step 5) |
@@ -74,7 +74,7 @@ Checked against the current official Decap docs: Decap CMS **3.17.0+** includes 
 
 1. Sign up at Decap Turbo (the docs currently describe access as invite-only or early access in places; if signup is not open to you yet, join the waitlist. Fallback in the last section).
 2. **Connect Git provider:** install the **Decap Turbo GitHub App** on your account, limited to the `siam-meridian-logistics` repository.
-3. **Create a site:** repository `thapakornhan/siam-meridian-logistics`, branch `main`, config path `public/admin/config.yml`, admin URL `https://www.sml-th.com/admin/` (exact: protocol, host and path must match what you use; add the `pages.dev` admin URL too if you test there).
+3. **Create a site:** repository `thapakornhan/siam-meridian-logistics`, branch `main`, config path `public/admin/config.yml`, admin URL `https://www.siam-meridian-logistics.com/admin/` (exact: protocol, host and path must match what you use; add the `pages.dev` admin URL too if you test there).
 4. Copy the **Site ID**.
 5. Edit `cms.settings.json`:
    ```json

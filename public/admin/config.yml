@@ -7,7 +7,7 @@ backend:
   branch: main
   turbo_site_id: 332d3b35-1419-46a0-98da-c8b605fd3bf1
 local_backend: true
-site_url: https://www.sml-th.com
+site_url: https://www.siam-meridian-logistics.com
 logo_url: /brand/logo-sm.png
 media_folder: public/uploads
 public_folder: /uploads
