@@ -2,29 +2,17 @@
   "slug": "land-freight",
   "icon": "truck",
   "en": {
-    "seo_title": "Land Freight",
-    "seo_description": "Land freight and trucking coordination from Siam Meridian Logistics, Bangkok.",
-    "title": "Land Freight",
+    "suitable_title": "Suitable for",
+    "cta_button": "Request a land freight quote",
     "summary": "Road transport for cargo moving by truck.",
-    "overview": "Land freight moves cargo by road, whether as a complete journey or as the leg that connects ports, airports and warehouses. Siam Meridian Logistics coordinates trucking so your cargo reaches the next point on schedule.\n\nTell us the pickup and delivery points and we will recommend a practical arrangement.",
-    "benefits": [
-      {
-        "title": "Flexible pickup and delivery",
-        "body": "Road transport can reach many locations directly."
-      },
-      {
-        "title": "Connects other modes",
-        "body": "Links ports and airports with your premises."
-      },
-      {
-        "title": "Practical for shorter routes",
-        "body": "A natural fit when cargo does not need to cross an ocean."
-      },
-      {
-        "title": "Coordinated handover",
-        "body": "One team arranging pickup and delivery details."
-      }
+    "suitable": [
+      "Pickup and delivery to ports or airports",
+      "Domestic and cross-border road shipments",
+      "Palletised or boxed cargo",
+      "Businesses that need a single coordinator for each leg",
+      "One-off and recurring movements"
     ],
+    "cta_title": "Get a quote for land freight",
     "process": [
       {
         "title": "Share your details",
@@ -43,41 +31,41 @@
         "body": "We keep you informed until the cargo is delivered."
       }
     ],
-    "suitable_title": "Suitable for",
-    "suitable": [
-      "Pickup and delivery to ports or airports",
-      "Domestic and cross-border road shipments",
-      "Palletised or boxed cargo",
-      "Businesses that need a single coordinator for each leg",
-      "One-off and recurring movements"
-    ],
-    "cta_title": "Get a quote for land freight",
-    "cta_button": "Request a land freight quote"
-  },
-  "th": {
-    "seo_title": "ขนส่งทางบก",
-    "seo_description": "บริการประสานงานขนส่งสินค้าทางบกและรถบรรทุก จาก สยาม เมริเดียน โลจิสติกส์ กรุงเทพมหานคร",
-    "title": "ขนส่งทางบก",
-    "summary": "ขนส่งสินค้าทางถนนด้วยรถบรรทุก",
-    "overview": "การขนส่งทางบกเคลื่อนย้ายสินค้าทางถนน ไม่ว่าจะเป็นการเดินทางตลอดเส้นทาง หรือช่วงที่เชื่อมต่อท่าเรือ สนามบิน และคลังสินค้า สยาม เมริเดียน โลจิสติกส์ ประสานงานการขนส่งทางรถบรรทุกเพื่อให้สินค้าของคุณไปถึงจุดต่อไปตามกำหนด\n\nบอกจุดรับและจุดส่งสินค้า แล้วเราจะแนะนำรูปแบบที่ใช้ได้จริง",
+    "seo_title": "Inland Freight",
+    "title": "Inland Freight",
+    "overview": "Land freight moves cargo by road, whether as a complete journey or as the leg that connects ports, airports and warehouses. Siam Meridian Logistics coordinates trucking so your cargo reaches the next point on schedule.\n\nTell us the pickup and delivery points and we will recommend a practical arrangement.",
+    "seo_description": "Inland freight and trucking coordination from Siam Meridian Logistics, Bangkok.",
     "benefits": [
       {
-        "title": "รับและส่งได้ยืดหยุ่น",
-        "body": "การขนส่งทางถนนเข้าถึงสถานที่ได้หลากหลายโดยตรง"
+        "title": "Flexible pickup and delivery",
+        "body": "Road transport can reach many locations directly."
       },
       {
-        "title": "เชื่อมต่อการขนส่งรูปแบบอื่น",
-        "body": "เชื่อมท่าเรือและสนามบินกับสถานที่ของคุณ"
+        "title": "Connects other modes",
+        "body": "Links ports and airports with your premises."
       },
       {
-        "title": "เหมาะกับเส้นทางระยะสั้น",
-        "body": "เหมาะเมื่อสินค้าไม่ต้องข้ามมหาสมุทร"
+        "title": "Practical for shorter routes",
+        "body": "A natural fit when cargo does not need to cross an ocean."
       },
       {
-        "title": "ประสานการส่งมอบ",
-        "body": "ทีมเดียวดูแลรายละเอียดการรับและส่งสินค้า"
+        "title": "Coordinated handover",
+        "body": "One team arranging pickup and delivery details."
       }
+    ]
+  },
+  "th": {
+    "suitable_title": "เหมาะสำหรับ",
+    "cta_button": "ขอใบเสนอราคาขนส่งทางบก",
+    "summary": "ขนส่งสินค้าทางถนนด้วยรถบรรทุก",
+    "suitable": [
+      "การรับและส่งสินค้าไปยังท่าเรือหรือสนามบิน",
+      "การขนส่งทางถนนในประเทศและข้ามพรมแดน",
+      "สินค้าบนพาเลทหรือบรรจุกล่อง",
+      "ธุรกิจที่ต้องการผู้ประสานงานเดียวสำหรับแต่ละช่วง",
+      "การขนส่งครั้งเดียวและแบบประจำ"
     ],
+    "cta_title": "ขอใบเสนอราคาขนส่งทางบก",
     "process": [
       {
         "title": "แจ้งรายละเอียด",
@@ -96,15 +84,28 @@
         "body": "เราแจ้งความคืบหน้าจนกว่าสินค้าจะถึงปลายทาง"
       }
     ],
-    "suitable_title": "เหมาะสำหรับ",
-    "suitable": [
-      "การรับและส่งสินค้าไปยังท่าเรือหรือสนามบิน",
-      "การขนส่งทางถนนในประเทศและข้ามพรมแดน",
-      "สินค้าบนพาเลทหรือบรรจุกล่อง",
-      "ธุรกิจที่ต้องการผู้ประสานงานเดียวสำหรับแต่ละช่วง",
-      "การขนส่งครั้งเดียวและแบบประจำ"
-    ],
-    "cta_title": "ขอใบเสนอราคาขนส่งทางบก",
-    "cta_button": "ขอใบเสนอราคาขนส่งทางบก"
-  }
+    "seo_title": "ขนส่งทางบก",
+    "title": "ขนส่งทางบก",
+    "overview": "การขนส่งทางบกเคลื่อนย้ายสินค้าทางถนน ไม่ว่าจะเป็นการเดินทางตลอดเส้นทาง หรือช่วงที่เชื่อมต่อท่าเรือ สนามบิน และคลังสินค้า สยาม เมริเดียน โลจิสติกส์ ประสานงานการขนส่งทางรถบรรทุกเพื่อให้สินค้าของคุณไปถึงจุดต่อไปตามกำหนด\n\nบอกจุดรับและจุดส่งสินค้า แล้วเราจะแนะนำรูปแบบที่ใช้ได้จริง",
+    "seo_description": "บริการประสานงานขนส่งสินค้าทางบกและรถบรรทุก จาก สยาม เมริเดียน โลจิสติกส์ กรุงเทพมหานคร",
+    "benefits": [
+      {
+        "title": "รับและส่งได้ยืดหยุ่น",
+        "body": "การขนส่งทางถนนเข้าถึงสถานที่ได้หลากหลายโดยตรง"
+      },
+      {
+        "title": "เชื่อมต่อการขนส่งรูปแบบอื่น",
+        "body": "เชื่อมท่าเรือและสนามบินกับสถานที่ของคุณ"
+      },
+      {
+        "title": "เหมาะกับเส้นทางระยะสั้น",
+        "body": "เหมาะเมื่อสินค้าไม่ต้องข้ามมหาสมุทร"
+      },
+      {
+        "title": "ประสานการส่งมอบ",
+        "body": "ทีมเดียวดูแลรายละเอียดการรับและส่งสินค้า"
+      }
+    ]
+  },
+  "visible": true
 }
