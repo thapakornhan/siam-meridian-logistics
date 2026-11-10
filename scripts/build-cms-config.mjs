@@ -21,6 +21,8 @@ const both = (fieldsFn, extra = {}) => [
   { name: 'en', label: 'English', widget: 'object', collapsed: false, fields: fieldsFn(), ...extra },
   { name: 'th', label: 'ไทย (Thai)', widget: 'object', collapsed: true, fields: fieldsFn(), ...extra }
 ];
+const photoAlt = () => s('image_alt', 'Photo description', { required: false, hint: 'Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.' });
+const photoField = () => img('image', 'Photo (optional)', { hint: 'Shown with the text. Landscape, about 1600 x 1000 px, under 300 KB (JPG or WebP). Leave empty for no photo. Add the description in both language sections.' });
 const seo = () => [
   s('seo_title', 'Page title for Google and browser tab', { hint: 'Keep it under about 60 characters. The company name is added automatically.' }),
   t('seo_description', 'Page description for Google', { hint: 'One or two sentences, up to about 160 characters.' })
@@ -41,14 +43,14 @@ const home = () => [
   s('contact_title', 'Contact section: title')
 ];
 const about = () => [
-  ...seo(), s('title', 'Page title'), t('intro', 'Introduction (top of page)'), t('body', 'Company introduction', { hint: 'Separate paragraphs with a blank line.' }),
+  ...seo(), photoAlt(), s('title', 'Page title'), t('intro', 'Introduction (top of page)'), t('body', 'Company introduction', { hint: 'Separate paragraphs with a blank line.' }),
   s('vision_title', 'Vision: heading'), t('vision', 'Vision'), s('mission_title', 'Mission: heading'), t('mission', 'Mission'),
   s('philosophy_title', 'Business philosophy: heading'), list('philosophy_items', 'Business philosophy: values', pair(), { min: 1, max: 6 }),
   s('why_title', 'Why work with us: heading'), list('why_items', 'Why work with us: points', pair(), { min: 1, max: 6 }),
   s('cta_title', 'Bottom band: title'), s('cta_button', 'Bottom band: button text')
 ];
 const service = () => [
-  ...seo(), s('title', 'Service name'), t('summary', 'One-line summary', { hint: 'Shown on cards and at the top of the page.' }),
+  ...seo(), photoAlt(), s('title', 'Service name'), t('summary', 'One-line summary', { hint: 'Shown on cards and at the top of the page.' }),
   t('overview', 'Overview', { hint: 'Separate paragraphs with a blank line.' }),
   list('benefits', 'Key benefits', pair(), { min: 1, max: 6 }),
   list('process', 'Service process (in order)', pair(), { min: 2, max: 6 }),
@@ -72,6 +74,7 @@ const toggle = (name, label, req) => ({ name, label, widget: 'object', collapsed
 const svcFile = (slug, label) => file(slug, label, `src/data/service-${slug}.json`, [
   { name: 'slug', label: 'Page address (do not change)', widget: 'hidden', default: slug },
   { name: 'icon', label: 'Icon (do not change)', widget: 'hidden', default: { 'air-freight': 'plane', 'sea-freight': 'ship', 'land-freight': 'truck', 'international-logistics': 'globe' }[slug] },
+  photoField(),
   { name: 'visible', label: 'Show this service on the website', widget: 'boolean', default: true, hint: 'Turn OFF to hide the page everywhere (menu, homepage, footer, quote form, Google). The text is kept so you can turn it back on.' },
   ...both(service)
 ]);
@@ -106,7 +109,7 @@ const config = {
       name: 'pages', label: 'Website pages', description: 'Edit the text of each page in English and Thai.',
       files: [
         file('home', 'Homepage', 'src/data/home.json', [img('hero_image', 'Homepage background photo (optional)', { hint: 'Leave empty to keep the brand graphic. Use a wide landscape photo, at least 2000 px wide, under 500 KB.' }), ...both(home)]),
-        file('about', 'About Us', 'src/data/about.json', both(about)),
+        file('about', 'About Us', 'src/data/about.json', [photoField(), ...both(about)]),
         file('quote', 'Get a Quote page', 'src/data/quote.json', both(quotePage)),
         file('contact', 'Contact Us (details and text)', 'src/data/contact.json', [
           s('phone_display', 'Phone number (as shown)'), s('phone_link', 'Phone number (for tap-to-call)', { hint: 'No spaces, with country code, e.g. +66830345538' }),

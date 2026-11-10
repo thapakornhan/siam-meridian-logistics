@@ -8,12 +8,17 @@ import type { Lang } from '../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = data.about[lang];
+const image = (data.about as { image?: string }).image;
+const alt = (c as { image_alt?: string }).image_alt ?? '';
 ---
 <Base lang={lang} title={c.seo_title} description={c.seo_description} path="/about/">
   <PageHero title={c.title} intro={c.intro} />
   <section class="section">
     <div class="wrap split">
-      <div class="prose">{paragraphs(c.body).map((p) => <p class="lead">{p}</p>)}</div>
+      <div class="prose">
+        {paragraphs(c.body).map((p) => <p class="lead">{p}</p>)}
+        {image && <figure class="figure"><img src={image} alt={alt} loading="lazy" decoding="async" /></figure>}
+      </div>
       <div class="grid">
         <div class="side-panel"><h3>{c.vision_title}</h3><p style="margin:0">{c.vision}</p></div>
         <div class="side-panel"><h3>{c.mission_title}</h3><p style="margin:0">{c.mission}</p></div>

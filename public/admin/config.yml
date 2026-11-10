@@ -218,6 +218,11 @@ collections:
         label: About Us
         file: src/data/about.json
         fields:
+          - name: image
+            label: Photo (optional)
+            widget: image
+            required: false
+            hint: Shown with the text. Landscape, about 1600 x 1000 px, under 300 KB (JPG or WebP). Leave empty for no photo. Add the description in both language sections.
           - name: en
             label: English
             widget: object
@@ -231,6 +236,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Page title
                 widget: string
@@ -304,6 +314,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Page title
                 widget: string
@@ -770,6 +785,11 @@ collections:
             label: Icon (do not change)
             widget: hidden
             default: plane
+          - name: image
+            label: Photo (optional)
+            widget: image
+            required: false
+            hint: Shown with the text. Landscape, about 1600 x 1000 px, under 300 KB (JPG or WebP). Leave empty for no photo. Add the description in both language sections.
           - name: visible
             label: Show this service on the website
             widget: boolean
@@ -788,6 +808,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Service name
                 widget: string
@@ -854,6 +879,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Service name
                 widget: string
@@ -919,6 +949,11 @@ collections:
             label: Icon (do not change)
             widget: hidden
             default: ship
+          - name: image
+            label: Photo (optional)
+            widget: image
+            required: false
+            hint: Shown with the text. Landscape, about 1600 x 1000 px, under 300 KB (JPG or WebP). Leave empty for no photo. Add the description in both language sections.
           - name: visible
             label: Show this service on the website
             widget: boolean
@@ -937,6 +972,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Service name
                 widget: string
@@ -1003,6 +1043,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Service name
                 widget: string
@@ -1068,6 +1113,11 @@ collections:
             label: Icon (do not change)
             widget: hidden
             default: truck
+          - name: image
+            label: Photo (optional)
+            widget: image
+            required: false
+            hint: Shown with the text. Landscape, about 1600 x 1000 px, under 300 KB (JPG or WebP). Leave empty for no photo. Add the description in both language sections.
           - name: visible
             label: Show this service on the website
             widget: boolean
@@ -1086,6 +1136,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Service name
                 widget: string
@@ -1152,6 +1207,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Service name
                 widget: string
@@ -1217,6 +1277,11 @@ collections:
             label: Icon (do not change)
             widget: hidden
             default: globe
+          - name: image
+            label: Photo (optional)
+            widget: image
+            required: false
+            hint: Shown with the text. Landscape, about 1600 x 1000 px, under 300 KB (JPG or WebP). Leave empty for no photo. Add the description in both language sections.
           - name: visible
             label: Show this service on the website
             widget: boolean
@@ -1235,6 +1300,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Service name
                 widget: string
@@ -1301,6 +1371,11 @@ collections:
                 label: Page description for Google
                 widget: text
                 hint: One or two sentences, up to about 160 characters.
+              - name: image_alt
+                label: Photo description
+                widget: string
+                required: false
+                hint: Describe the photo in one short sentence. Used by screen readers and Google. Only needed if you add a photo.
               - name: title
                 label: Service name
                 widget: string

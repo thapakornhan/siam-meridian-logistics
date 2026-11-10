@@ -325,3 +325,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px
 .mobile-menu.on-dark nav a, .mobile-menu.on-dark summary, .mobile-menu.on-dark .lang-switch { color: #fff; }
 .mobile-menu.on-dark details a { color: var(--silver); }
 .mobile-menu.on-dark .btn--gold { color: var(--midnight); }
+
+/* optional photos in About / Service pages */
+.figure { margin: 32px 0 0; }
+.figure img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--r-lg); background: var(--mist); box-shadow: var(--shadow); }

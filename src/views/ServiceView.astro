@@ -13,6 +13,8 @@ const { lang, slug } = Astro.props;
 const t = ui[lang];
 const svc = getService(slug);
 const c = svc[lang];
+const image = (svc as { image?: string }).image;
+const alt = (c as { image_alt?: string }).image_alt ?? '';
 const others = services.filter((s) => s.slug !== slug);
 const quoteUrl = `${href(lang, '/get-a-quote/')}?service=${slug}`;
 ---
@@ -28,6 +30,7 @@ const quoteUrl = `${href(lang, '/get-a-quote/')}?service=${slug}`;
         <span class="rule"></span>
         <h2 id="ov-h">{t.overview}</h2>
         {paragraphs(c.overview).map((p) => <p class="lead">{p}</p>)}
+        {image && <figure class="figure"><img src={image} alt={alt} loading="lazy" decoding="async" /></figure>}
       </div>
       <aside class="side-panel">
         <h3>{c.suitable_title}</h3>
