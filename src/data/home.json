@@ -3,26 +3,26 @@
   "en": {
     "hero_cta_secondary": "Our Services",
     "cta_button": "Get a Quote",
-    "why_title": "Why choose Siam Meridian Logistics",
+    "why_title": "Why Work With Siam Meridian Logistics",
     "solutions_body": "Some shipments need more than one mode of transport. We help plan routes that combine air, sea and land freight around your cargo, your schedule and your budget.",
     "hero_intro": "Air, sea and land freight forwarding for businesses that ship internationally. Tell us what you need to move and we will coordinate the rest.",
     "process_title": "How it works",
     "why_items": [
       {
-        "title": "One point of contact",
-        "body": "Share your requirements once and work with a single team from first inquiry to delivery."
+        "title": "Personalized Service",
+        "body": "We understand that every business is different. That's why we provide personalized solutions tailored to your needs."
       },
       {
-        "title": "Clear communication",
-        "body": "Straightforward answers about your options, required documents and next steps."
+        "title": "Global Shipping Solutions",
+        "body": "From sea and air freight to inland transportation, we coordinate with our logistics partners to support your international shipping needs."
       },
       {
-        "title": "Flexible transport options",
-        "body": "Air, sea, land or a combination, matched to your cargo and timeline."
+        "title": "Clear Communication",
+        "body": "We keep you informed through clear communication, shipment updates, and continuous coordination throughout the shipping process."
       },
       {
-        "title": "Import and export support",
-        "body": "Help coordinating the paperwork and handovers that international shipping involves."
+        "title": "Practical Solutions",
+        "body": "We focus on practical solutions that balance time, cost, and your business requirements."
       }
     ],
     "cta_title": "Ready to move your cargo?",
@@ -67,23 +67,23 @@
     "process_title": "ขั้นตอนการทำงาน",
     "why_items": [
       {
-        "title": "ติดต่อที่เดียว",
-        "body": "แจ้งความต้องการเพียงครั้งเดียว และทำงานกับทีมเดียวตั้งแต่สอบถามจนถึงส่งมอบ"
+        "title": "ใส่ใจทุกความต้องการ",
+        "body": "เราเข้าใจว่าธุรกิจแต่ละแห่งมีความต้องการแตกต่างกัน จึงพร้อมดูแลและนำเสนอบริการที่เหมาะสมกับลูกค้าแต่ละราย"
       },
       {
-        "title": "สื่อสารชัดเจน",
-        "body": "ให้คำตอบตรงไปตรงมาเกี่ยวกับตัวเลือก เอกสารที่ต้องใช้ และขั้นตอนถัดไป"
+        "title": "ครอบคลุมการขนส่งระหว่างประเทศ",
+        "body": "รองรับการขนส่งทางเรือ ทางอากาศ และการขนส่งภายในประเทศ พร้อมประสานงานกับเครือข่ายพันธมิตรด้านโลจิสติกส์"
       },
       {
-        "title": "ตัวเลือกการขนส่งที่ยืดหยุ่น",
-        "body": "ทางอากาศ ทางเรือ ทางบก หรือผสมผสาน ตามความเหมาะสมของสินค้าและเวลา"
+        "title": "สื่อสารและประสานงานอย่างชัดเจน",
+        "body": "เราให้ความสำคัญกับการอัปเดตข้อมูล ติดตามสถานะสินค้า และประสานงานอย่างต่อเนื่อง เพื่อให้ลูกค้าทราบความคืบหน้าอยู่เสมอ"
       },
       {
-        "title": "ช่วยงานนำเข้าและส่งออก",
-        "body": "ช่วยประสานงานเอกสารและการส่งต่อที่จำเป็นในการขนส่งระหว่างประเทศ"
+        "title": "มุ่งเน้นทางออกที่เหมาะสม",
+        "body": "เราพร้อมช่วยวิเคราะห์และหาแนวทางแก้ไขปัญหาด้านการขนส่ง โดยคำนึงถึงเวลา ต้นทุน และความต้องการของลูกค้า"
       }
     ],
-    "cta_title": "พร้อมขนส่งสินค้าของคุณหรือยัง",
+    "cta_title": "พร้อมขนส่งสินค้าของคุณหรือยัง！",
     "solutions_cta": "ปรึกษาเรื่องการขนส่ง",
     "services_intro": "เลือกรูปแบบการขนส่งที่เหมาะกับสินค้า กำหนดเวลา และงบประมาณของคุณ หรือให้เราช่วยแนะนำ",
     "hero_cta_primary": "ขอใบเสนอราคา",
