@@ -3,11 +3,11 @@
   "site_name_th": "บริษัท สยาม เมริเดียน โลจิสติกส์ จำกัด",
   "default_og_image": "/brand/og-default.jpg",
   "en": {
-    "tagline": "Freight forwarding by sea and land.",
+    "tagline": "Freight forwarding by air, sea and land.",
     "footer_note": "Siam Meridian Logistics Co., Ltd. All rights reserved."
   },
   "th": {
-    "tagline": "บริการขนส่งสินค้าทางเรือ และทางบก",
+    "tagline": "บริการขนส่งสินค้าทางอากาศ ทางเรือ และทางบก",
     "footer_note": "บริษัท สยาม เมริเดียน โลจิสติกส์ จำกัด สงวนลิขสิทธิ์"
   }
 }
