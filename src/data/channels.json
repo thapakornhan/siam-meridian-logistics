@@ -35,8 +35,16 @@
       "show_footer": true,
       "show_home": true,
       "type": "wechat",
-      "value": "WeChat QR Code",
+      "value": "ID : SML0987189881",
       "qr": "/uploads/s__2178243.jpg"
+    },
+    {
+      "show_contact": true,
+      "show_footer": true,
+      "show_home": true,
+      "type": "line",
+      "value": "ID : 0987189881",
+      "qr": "/uploads/s__2178245.jpg"
     }
   ]
 }
