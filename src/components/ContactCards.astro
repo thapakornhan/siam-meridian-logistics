@@ -1,16 +1,18 @@
 ---
 import Icon from './Icon.astro';
+import ChannelCard from './ChannelCard.astro';
 import { ui, type Lang } from '../i18n/ui';
 import { data } from '../lib/content';
-interface Props { lang: Lang; map?: boolean }
-const { lang, map = true } = Astro.props;
+import { getChannels } from '../lib/channels';
+interface Props { lang: Lang; map?: boolean; where?: 'contact' | 'home' }
+const { lang, map = true, where = 'contact' } = Astro.props;
 const t = ui[lang].contactCard;
 const c = data.contact;
+const channels = getChannels(where);
 ---
 <div class="contact-cards">
   <div class="contact-card"><span class="ico"><Icon name="pin" /></span><div><h3>{t.address}</h3><address><p>{c[lang].address}</p></address></div></div>
-  <div class="contact-card"><span class="ico"><Icon name="phone" /></span><div><h3>{t.phone}</h3><p><a href={`tel:${c.phone_link}`}>{c.phone_display}</a></p></div></div>
-  <div class="contact-card"><span class="ico"><Icon name="mail" /></span><div><h3>{t.email}</h3><p><a href={`mailto:${c.email}`}>{c.email}</a></p></div></div>
+  {channels.map((ch) => <ChannelCard c={ch} lang={lang} qr={where === 'contact'} />)}
 </div>
 {map && (
   <div class="map-card">

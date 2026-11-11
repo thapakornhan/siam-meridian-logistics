@@ -1,10 +1,11 @@
 ---
 import Icon from './Icon.astro';
+import LangSwitch from './LangSwitch.astro';
 import { ui, type Lang } from '../i18n/ui';
 import { href, stripLang } from '../lib/i18n';
 import { services } from '../lib/content';
-interface Props { lang: Lang; altHref: string }
-const { lang, altHref } = Astro.props;
+interface Props { lang: Lang; switchLinks: { lang: Lang; href: string; current: boolean }[] }
+const { lang, switchLinks } = Astro.props;
 const t = ui[lang];
 const here = stripLang(Astro.url.pathname);
 const is = (p: string) => (p === '/' ? here === '/' : here.startsWith(p));
@@ -36,7 +37,7 @@ const links = [
         ))}
       </ul>
     </nav>
-    <a class="lang-switch" href={altHref} hreflang={lang === 'en' ? 'th' : 'en'} lang={lang === 'en' ? 'th' : 'en'} aria-label={t.switchLabel}>{t.switchTo}</a>
+    <LangSwitch lang={lang} links={switchLinks} />
     <a class="btn btn--gold btn--sm nav-cta" href={href(lang, '/get-a-quote/')}>{t.nav.quote}</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-open aria-label={t.nav.menu}><Icon name="menu" /></button>
   </div>
@@ -59,7 +60,7 @@ const links = [
     <a href={href(lang, '/contact/')}>{t.nav.contact}</a>
   </nav>
   <div class="mobile-menu-foot">
-    <a class="lang-switch" href={altHref} hreflang={lang === 'en' ? 'th' : 'en'} lang={lang === 'en' ? 'th' : 'en'} aria-label={t.switchLabel}>{t.switchTo}</a>
+    <LangSwitch lang={lang} links={switchLinks} />
   </div>
   <a class="btn btn--gold" href={href(lang, '/get-a-quote/')}>{t.nav.quote}</a>
 </div>

@@ -1,0 +1,11 @@
+---
+import { LANG_LABEL, LANG_NAME, ui, type Lang } from '../i18n/ui';
+interface Props { lang: Lang; links: { lang: Lang; href: string; current: boolean }[]; class?: string }
+const { lang, links, class: cls = '' } = Astro.props;
+---
+<div class={`lang-group ${cls}`} role="group" aria-label={ui[lang].footer.language}>
+  {links.map((l) => (
+    <a href={l.href} hreflang={l.lang === 'zh' ? 'zh-CN' : l.lang} lang={l.lang === 'zh' ? 'zh-CN' : l.lang} title={LANG_NAME[l.lang]}
+       {...(l.current ? { 'aria-current': 'true' } : {})}>{LANG_LABEL[l.lang]}</a>
+  ))}
+</div>

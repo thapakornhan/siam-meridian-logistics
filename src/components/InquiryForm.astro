@@ -1,12 +1,13 @@
 ---
 import { ui, type Lang } from '../i18n/ui';
-import { data, services, formSettings } from '../lib/content';
+import { services, formSettings } from '../lib/content';
+import { primaryEmail } from '../lib/channels';
 interface Props { lang: Lang; kind: 'quote' | 'contact' }
 const { lang, kind } = Astro.props;
 const t = ui[lang];
 const f = t.form;
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
-const msgs = { ...f.err, errorTitle: f.errorTitle, sending: f.sending, email: data.contact.email };
+const msgs = { ...f.err, errorTitle: f.errorTitle, sending: f.sending, email: primaryEmail };
 const isQuote = kind === 'quote';
 
 type Def = { name: string; type?: 'input' | 'select' | 'textarea'; full?: boolean; locked?: boolean; max: number; label: string; ph?: string; attrs?: Record<string, string> };
@@ -76,7 +77,7 @@ const id = (n: string) => `${kind}-${n}`;
 
     <div class="turnstile">
       {siteKey
-        ? <div class="cf-turnstile" data-sitekey={siteKey} data-language={lang} data-theme="light"></div>
+        ? <div class="cf-turnstile" data-sitekey={siteKey} data-language={lang === 'zh' ? 'zh-cn' : lang} data-theme="light"></div>
         : <p class="form-note" style="color:var(--danger)">Turnstile site key missing (set PUBLIC_TURNSTILE_SITE_KEY).</p>}
     </div>
 

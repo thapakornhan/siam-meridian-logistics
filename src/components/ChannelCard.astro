@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+import { ui, type Lang } from '../i18n/ui';
+import { channelHref, channelLabel, iconFor, type Channel } from '../lib/channels';
+interface Props { c: Channel; lang: Lang; qr?: boolean }
+const { c, lang, qr = false } = Astro.props;
+const names = ui[lang].channelNames as Record<string, string>;
+const href = channelHref(c);
+const external = !!href && /^https?:/.test(href);
+const label = channelLabel(c, lang);
+---
+<div class="contact-card">
+  <span class="ico"><Icon name={iconFor(c.type)} /></span>
+  <div>
+    <h3>{names[c.type] ?? names.other}</h3>
+    {label && <p class="meta">{label}</p>}
+    <p>{href ? <a href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{c.value}</a> : c.value}</p>
+    {qr && c.qr && <img class="qr" src={c.qr} alt={`${names[c.type] ?? ''} QR`} loading="lazy" width="140" height="140" />}
+  </div>
+</div>

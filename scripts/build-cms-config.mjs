@@ -112,8 +112,7 @@ const config = {
         file('about', 'About Us', 'src/data/about.json', [photoField(), ...both(about)]),
         file('quote', 'Get a Quote page', 'src/data/quote.json', both(quotePage)),
         file('contact', 'Contact Us (details and text)', 'src/data/contact.json', [
-          s('phone_display', 'Phone number (as shown)'), s('phone_link', 'Phone number (for tap-to-call)', { hint: 'No spaces, with country code, e.g. +66830345538' }),
-          s('email', 'Email address'), s('maps_url', 'Google Maps link'),
+          s('maps_url', 'Google Maps link'),
           s('maps_embed_url', 'Google Maps embed address (optional)', { required: false, hint: 'In Google Maps: Share → Embed a map → copy ONLY the address inside src="…". Leave empty to show a "View on Google Maps" button instead.' }),
           ...both(contact)
         ]),
@@ -124,6 +123,23 @@ const config = {
             toggle('weight', 'Estimated cargo weight', false), toggle('volume', 'Estimated cargo volume', false), toggle('extra', 'Additional requirements', false)
           ] },
           { name: 'contact', label: 'Contact Us form', widget: 'object', collapsed: true, hint: 'Name, email and message are always required.', fields: [toggle('company', 'Company name', false), toggle('phone', 'Phone number', false)] }
+        ]),
+        file('channels', 'Contact channels (phones, email, WeChat, LINE...)', 'src/data/channels.json', [
+          { name: 'items', label: 'Channels', widget: 'list', summary: '{{fields.type}}: {{fields.value}}', hint: 'Add as many as you need (several phone numbers, WeChat, LINE...). Drag to reorder. Used on the Contact page, footer and homepage.', fields: [
+            { name: 'type', label: 'Type', widget: 'select', options: [
+              { label: 'Phone', value: 'phone' }, { label: 'Email', value: 'email' }, { label: 'WeChat', value: 'wechat' }, { label: 'LINE', value: 'line' },
+              { label: 'WhatsApp', value: 'whatsapp' }, { label: 'Facebook', value: 'facebook' }, { label: 'LinkedIn', value: 'linkedin' }, { label: 'Telegram', value: 'telegram' }, { label: 'Other', value: 'other' }
+            ] },
+            s('value', 'What to show', { hint: 'The phone number, email address, or the WeChat/LINE ID exactly as customers should see it. Phone: include the country code, e.g. +66 83 034 5538.' }),
+            s('label', 'Small note (English)', { required: false, hint: 'Optional, e.g. Export team.' }),
+            s('label_th', 'Small note (Thai)', { required: false }),
+            s('label_zh', 'Small note (Chinese)', { required: false }),
+            s('link', 'Link (optional)', { required: false, hint: 'Phone, email and WhatsApp links are made automatically. For LINE, Facebook, LinkedIn or Telegram paste the full https:// link. WeChat has no link, use a QR image.' }),
+            img('qr', 'QR code image (optional)', { hint: 'Shown on the Contact page. Square image, at least 300 x 300 px.' }),
+            { name: 'show_contact', label: 'Show on Contact page', widget: 'boolean', default: true },
+            { name: 'show_footer', label: 'Show in footer', widget: 'boolean', default: true },
+            { name: 'show_home', label: 'Show on homepage and Get a Quote page', widget: 'boolean', default: true }
+          ] }
         ]),
         file('news_page', 'News page text', 'src/data/news.json', both(newsPage)),
         file('privacy', 'Privacy policy', 'src/data/privacy.json', both(privacy))
@@ -136,8 +152,25 @@ const config = {
         svcFile('international-logistics', 'International Logistics Solutions')
       ]
     },
+    {
+      name: 'pages_zh', label: '中文 Chinese pages', description: 'Simplified Chinese text for every page. Photos, contact channels and form settings are shared with the other languages.',
+      files: [
+        file('zh_home', 'Homepage', 'src/data/zh/home.json', home()),
+        file('zh_about', 'About Us', 'src/data/zh/about.json', about()),
+        file('zh_air', 'Air Freight', 'src/data/zh/service-air-freight.json', service()),
+        file('zh_sea', 'Sea Freight', 'src/data/zh/service-sea-freight.json', service()),
+        file('zh_land', 'Land Freight', 'src/data/zh/service-land-freight.json', service()),
+        file('zh_intl', 'International Logistics Solutions', 'src/data/zh/service-international-logistics.json', service()),
+        file('zh_contact', 'Contact Us (text and address)', 'src/data/zh/contact.json', contact()),
+        file('zh_quote', 'Get a Quote page', 'src/data/zh/quote.json', quotePage()),
+        file('zh_news_page', 'News page text', 'src/data/zh/news.json', newsPage()),
+        file('zh_privacy', 'Privacy policy', 'src/data/zh/privacy.json', privacy()),
+        file('zh_settings', 'Footer text', 'src/data/zh/settings.json', [s('tagline', 'Footer tagline'), s('footer_note', 'Copyright line (year is added automatically)')])
+      ]
+    },
     newsCollection('en', 'News & Updates (English)'),
     newsCollection('th', 'News & Updates (Thai)'),
+    newsCollection('zh', 'News & Updates (Chinese)'),
     {
       name: 'settings', label: 'Site settings',
       files: [file('site', 'General', 'src/data/settings.json', [

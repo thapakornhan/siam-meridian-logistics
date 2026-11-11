@@ -2,11 +2,12 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { ui } from '../i18n/ui';
-const en = ui.en.notFound; const th = ui.th.notFound;
+const en = ui.en.notFound; const th = ui.th.notFound; const zh = ui.zh.notFound;
 ---
-<Base lang="en" title={en.title} description={en.body} path="/404/" altPath={null} noindex quoteBar={false}>
+<Base lang="en" title={en.title} description={en.body} path="/404/" langs={[]} noindex quoteBar={false}>
   <PageHero class="nf" title={en.title} intro={en.body}>
     <div class="hero-actions"><a class="btn btn--gold" href="/">{en.home}</a><a class="btn btn--ghost" href="/get-a-quote/">{en.quote}</a></div>
     <p lang="th" style="margin-top:28px;opacity:.85">{th.body} <a href="/th/">{th.home}</a></p>
+    <p lang="zh-CN" style="margin-top:8px;opacity:.85">{zh.body} <a href="/zh/">{zh.home}</a></p>
   </PageHero>
 </Base>

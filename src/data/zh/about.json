@@ -1,0 +1,47 @@
+{
+  "seo_title": "关于我们",
+  "seo_description": "了解 Siam Meridian Logistics Co., Ltd.：一家位于曼谷、服务国际运输企业的货运代理公司。",
+  "title": "关于 Siam Meridian Logistics",
+  "intro": "Siam Meridian Logistics Co., Ltd. 是一家位于泰国曼谷的货运代理公司，协助企业通过空运、海运和陆运开展国际货物运输。",
+  "body": "我们是您团队的延伸：倾听您的运输需求，清晰说明可选方案，并协调其间的每个环节。\n\n本页为占位文字，正式的公司简介将在此补充。",
+  "vision_title": "愿景",
+  "vision": "成为国际企业值得信赖的货运合作伙伴。",
+  "mission_title": "使命",
+  "mission": "通过清晰的沟通、务实的方案和细致的协调，让国际运输更简单。",
+  "philosophy_title": "经营理念",
+  "philosophy_items": [
+    {
+      "title": "可靠",
+      "body": "说到做到，计划有变时及时告知。"
+    },
+    {
+      "title": "透明",
+      "body": "在您做决定之前，清楚说明方案、要求和费用。"
+    },
+    {
+      "title": "合作",
+      "body": "致力于建立基于信任的长期合作关系。"
+    }
+  ],
+  "why_title": "为什么与我们合作",
+  "why_items": [
+    {
+      "title": "专注货运",
+      "body": "空运、海运和陆运货代是我们的本职工作。"
+    },
+    {
+      "title": "服务直接",
+      "body": "答复清楚明了，由同一团队对接。"
+    },
+    {
+      "title": "因货制宜",
+      "body": "根据您所运货物提供建议，而不是千篇一律的套餐。"
+    },
+    {
+      "title": "随时沟通",
+      "body": "发送您的需求，我们将回复报价。"
+    }
+  ],
+  "cta_title": "聊聊您的运输需求",
+  "cta_button": "获取报价"
+}

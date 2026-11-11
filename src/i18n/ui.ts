@@ -1,15 +1,20 @@
-export type Lang = 'en' | 'th';
-export const LANGS: Lang[] = ['en', 'th'];
+import { zh } from './zh';
+
+export type Lang = 'en' | 'th' | 'zh';
+export const LANGS: Lang[] = ['en', 'th', 'zh'];
+/** Short labels for the language switcher, each written in its own language. */
+export const LANG_LABEL: Record<Lang, string> = { en: 'EN', th: 'ไทย', zh: '中文' };
+export const LANG_NAME: Record<Lang, string> = { en: 'English', th: 'ภาษาไทย', zh: '简体中文' };
 
 const en = {
   htmlLang: 'en',
   skip: 'Skip to main content',
   nav: { home: 'Home', about: 'About', services: 'Services', news: 'News', contact: 'Contact', quote: 'Get a Quote', menu: 'Menu', close: 'Close menu', primary: 'Primary navigation', allServices: 'All services' },
-  langName: 'English', switchTo: 'ไทย', switchLabel: 'เปลี่ยนเป็นภาษาไทย',
   learnMore: 'Learn more', readMore: 'Read article', backToNews: 'Back to news', published: 'Published',
   relatedServices: 'Other services', keyBenefits: 'Key benefits', serviceProcess: 'Service process', overview: 'Overview',
   quickQuote: { title: 'Quick quote', service: 'Service', origin: 'Origin', destination: 'Destination', originPh: 'City or country', destPh: 'City or country', go: 'Continue to quote form', any: 'Select a service' },
   contactCard: { address: 'Address', phone: 'Phone', email: 'Email', map: 'View on Google Maps', mapTitle: 'Our location', mapNote: 'Open our location in Google Maps' },
+  channelNames: { phone: 'Phone', email: 'Email', wechat: 'WeChat', line: 'LINE', whatsapp: 'WhatsApp', facebook: 'Facebook', linkedin: 'LinkedIn', telegram: 'Telegram', other: 'Contact' },
   footer: { explore: 'Explore', services: 'Services', contact: 'Contact', privacy: 'Privacy policy', language: 'Language' },
   services: { air: 'Air Freight', sea: 'Sea Freight', land: 'Land Freight', intl: 'International Logistics Solutions' },
   form: {
@@ -43,11 +48,11 @@ const th: typeof en = {
   htmlLang: 'th',
   skip: 'ข้ามไปยังเนื้อหาหลัก',
   nav: { home: 'หน้าแรก', about: 'เกี่ยวกับเรา', services: 'บริการ', news: 'ข่าวสาร', contact: 'ติดต่อเรา', quote: 'ขอใบเสนอราคา', menu: 'เมนู', close: 'ปิดเมนู', primary: 'เมนูหลัก', allServices: 'บริการทั้งหมด' },
-  langName: 'ไทย', switchTo: 'EN', switchLabel: 'Switch to English',
   learnMore: 'ดูรายละเอียด', readMore: 'อ่านบทความ', backToNews: 'กลับไปหน้าข่าวสาร', published: 'เผยแพร่เมื่อ',
   relatedServices: 'บริการอื่น ๆ', keyBenefits: 'ประโยชน์หลัก', serviceProcess: 'ขั้นตอนบริการ', overview: 'ภาพรวม',
   quickQuote: { title: 'ขอราคาเบื้องต้น', service: 'บริการ', origin: 'ต้นทาง', destination: 'ปลายทาง', originPh: 'เมือง หรือประเทศ', destPh: 'เมือง หรือประเทศ', go: 'ไปยังแบบฟอร์มขอใบเสนอราคา', any: 'เลือกบริการ' },
   contactCard: { address: 'ที่อยู่', phone: 'โทรศัพท์', email: 'อีเมล', map: 'ดูใน Google Maps', mapTitle: 'ที่ตั้งของเรา', mapNote: 'เปิดตำแหน่งของเราใน Google Maps' },
+  channelNames: { phone: 'โทรศัพท์', email: 'อีเมล', wechat: 'WeChat', line: 'LINE', whatsapp: 'WhatsApp', facebook: 'Facebook', linkedin: 'LinkedIn', telegram: 'Telegram', other: 'ติดต่อ' },
   footer: { explore: 'เมนู', services: 'บริการ', contact: 'ติดต่อ', privacy: 'นโยบายความเป็นส่วนตัว', language: 'ภาษา' },
   services: { air: 'ขนส่งทางอากาศ', sea: 'ขนส่งทางเรือ', land: 'ขนส่งทางบก', intl: 'โซลูชันโลจิสติกส์ระหว่างประเทศ' },
   form: {
@@ -77,5 +82,5 @@ const th: typeof en = {
   adminOnly: ''
 };
 
-export const ui = { en, th };
+export const ui = { en, th, zh };
 export type UI = typeof en;

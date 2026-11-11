@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "type": "phone",
+      "label": "",
+      "label_th": "",
+      "value": "+66 83 034 5538",
+      "link": "",
+      "qr": "",
+      "show_contact": true,
+      "show_footer": true,
+      "show_home": true
+    },
+    {
+      "type": "email",
+      "label": "",
+      "label_th": "",
+      "value": "Export@sml-th.com",
+      "link": "",
+      "qr": "",
+      "show_contact": true,
+      "show_footer": true,
+      "show_home": true
+    }
+  ]
+}

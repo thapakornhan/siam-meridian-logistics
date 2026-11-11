@@ -1,13 +1,16 @@
 ---
-import Icon from './Icon.astro';
+import LangSwitch from './LangSwitch.astro';
 import { ui, type Lang } from '../i18n/ui';
 import { href } from '../lib/i18n';
 import { services, data } from '../lib/content';
-interface Props { lang: Lang; altHref: string }
-const { lang, altHref } = Astro.props;
+import { getChannels, channelHref } from '../lib/channels';
+interface Props { lang: Lang; links: { lang: Lang; href: string; current: boolean }[] }
+const { lang, links } = Astro.props;
 const t = ui[lang];
 const c = data.contact;
 const s = data.settings;
+const names = t.channelNames as Record<string, string>;
+const channels = getChannels('footer');
 ---
 <footer class="site-footer on-dark">
   <div class="footer-grid">
@@ -33,13 +36,16 @@ const s = data.settings;
       <h3>{t.footer.contact}</h3>
       <address>
         <span>{c[lang].address}</span>
-        <a href={`tel:${c.phone_link}`}>{c.phone_display}</a>
-        <a href={`mailto:${c.email}`}>{c.email}</a>
+        {channels.map((ch) => {
+          const h = channelHref(ch);
+          const txt = ch.type === 'phone' || ch.type === 'email' ? ch.value : `${names[ch.type] ?? names.other}: ${ch.value}`;
+          return h ? <a href={h} {...(/^https?:/.test(h) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{txt}</a> : <span>{txt}</span>;
+        })}
       </address>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© {new Date().getFullYear()} {s[lang].footer_note}</span>
-    <span><a href={href(lang, '/privacy/')}>{t.footer.privacy}</a> &nbsp;|&nbsp; <a href={altHref} hreflang={lang === 'en' ? 'th' : 'en'} lang={lang === 'en' ? 'th' : 'en'}>{t.switchTo === 'EN' ? 'English' : 'ไทย'}</a></span>
+    <span class="footer-meta"><a href={href(lang, '/privacy/')}>{t.footer.privacy}</a><LangSwitch lang={lang} links={links} /></span>
   </div>
 </footer>

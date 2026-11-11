@@ -67,7 +67,7 @@ export const onRequestPost = async ({ request, env }: Ctx): Promise<Response> =>
 
   // 4. Validate
   const kind = str('kind') === 'contact' ? 'contact' : 'quote';
-  const lang = str('lang') === 'th' ? 'th' : 'en';
+  const lang = ['th', 'zh'].includes(str('lang')) ? str('lang') : 'en';
   const rules = rulesFor(kind);
   const data: Record<string, string> = {};
   const bad: string[] = [];

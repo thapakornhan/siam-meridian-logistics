@@ -1,0 +1,6 @@
+---
+import View from '../../../views/ArticleView.astro';
+import { getArticles } from '../../../lib/content';
+export function getStaticPaths() { return getArticles('zh').map((a) => ({ params: { slug: a.slug }, props: { slug: a.slug } })); }
+---
+<View lang="zh" slug={Astro.props.slug} />

@@ -11,7 +11,7 @@ export default defineConfig({
   build: { format: 'directory' },
   integrations: [
     sitemap({
-      i18n: { defaultLocale: 'en', locales: { en: 'en-US', th: 'th-TH' } }
+      i18n: { defaultLocale: 'en', locales: { en: 'en-US', th: 'th-TH', zh: 'zh-CN' } }
     })
   ]
 });

@@ -2,24 +2,20 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import InquiryForm from '../components/InquiryForm.astro';
-import Icon from '../components/Icon.astro';
-import { ui, type Lang } from '../i18n/ui';
+import ChannelCard from '../components/ChannelCard.astro';
+import { getChannels } from '../lib/channels';
+import type { Lang } from '../i18n/ui';
 import { data } from '../lib/content';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = data.quote[lang];
-const ct = data.contact;
-const t = ui[lang].contactCard;
 ---
 <Base lang={lang} title={c.seo_title} description={c.seo_description} path="/get-a-quote/" quoteBar={false}>
   <PageHero title={c.title} intro={c.intro} />
   <section class="section">
     <div class="wrap form-layout">
       <InquiryForm lang={lang} kind="quote" />
-      <aside class="form-aside">
-        <div class="contact-card"><span class="ico"><Icon name="phone" /></span><div><h3>{t.phone}</h3><p><a href={`tel:${ct.phone_link}`}>{ct.phone_display}</a></p></div></div>
-        <div class="contact-card"><span class="ico"><Icon name="mail" /></span><div><h3>{t.email}</h3><p><a href={`mailto:${ct.email}`}>{ct.email}</a></p></div></div>
-      </aside>
+      <aside class="form-aside">{getChannels('home').map((ch) => <ChannelCard c={ch} lang={lang} />)}</aside>
     </div>
   </section>
 </Base>
