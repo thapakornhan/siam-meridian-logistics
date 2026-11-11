@@ -12,6 +12,14 @@
       "label_th": ""
     },
     {
+      "show_contact": true,
+      "show_footer": true,
+      "show_home": true,
+      "type": "phone",
+      "value": "+66 98 718 9881",
+      "label": "Import-Export Freight Operator"
+    },
+    {
       "show_home": true,
       "qr": "",
       "value": "Export@sml-th.com",
@@ -21,14 +29,6 @@
       "show_footer": true,
       "show_contact": true,
       "label_th": ""
-    },
-    {
-      "show_contact": true,
-      "show_footer": true,
-      "show_home": true,
-      "type": "phone",
-      "value": "+66 98 718 9881",
-      "label": "Import-Export Freight Operator"
     }
   ]
 }
