@@ -1,5 +1,5 @@
 ---
-title: What Is a Freight Forwarder? Why Does Your Import-Export Business Need One?
+title: What Is a Freight Forwarder?
 slug: what-is-a-freight-forwarder
 date: 2026-11-11
 published: true
