@@ -1,5 +1,5 @@
 ---
-title: 什么是货运代理（Freight Forwarder）？为什么进出口企业需要货运代理？
+title: 什么是货运代理？
 slug: what-is-a-freight-forwarder
 date: 2026-11-11
 published: true
