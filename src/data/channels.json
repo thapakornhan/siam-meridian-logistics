@@ -8,7 +8,7 @@
       "type": "phone",
       "link": "",
       "show_footer": true,
-      "show_contact": true,
+      "show_contact": false,
       "label_th": ""
     },
     {
