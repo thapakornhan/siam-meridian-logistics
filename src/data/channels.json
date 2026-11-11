@@ -1,26 +1,34 @@
 {
   "items": [
     {
-      "type": "phone",
-      "label": "",
-      "label_th": "",
-      "value": "+66 83 034 5538",
-      "link": "",
+      "show_home": true,
       "qr": "",
-      "show_contact": true,
+      "value": "+66 83 034 5538",
+      "label": "Company",
+      "type": "phone",
+      "link": "",
       "show_footer": true,
-      "show_home": true
+      "show_contact": true,
+      "label_th": ""
     },
     {
-      "type": "email",
-      "label": "",
-      "label_th": "",
-      "value": "Export@sml-th.com",
-      "link": "",
+      "show_home": true,
       "qr": "",
+      "value": "Export@sml-th.com",
+      "label": "",
+      "type": "email",
+      "link": "",
+      "show_footer": true,
+      "show_contact": true,
+      "label_th": ""
+    },
+    {
       "show_contact": true,
       "show_footer": true,
-      "show_home": true
+      "show_home": true,
+      "type": "phone",
+      "value": "+66 98 718 9881",
+      "label": "Import-Export Freight Operator"
     }
   ]
 }
