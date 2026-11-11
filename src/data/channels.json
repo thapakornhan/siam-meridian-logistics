@@ -29,6 +29,14 @@
       "show_footer": true,
       "show_contact": true,
       "label_th": ""
+    },
+    {
+      "show_contact": true,
+      "show_footer": true,
+      "show_home": true,
+      "type": "wechat",
+      "value": "WeChat QR Code",
+      "qr": "/uploads/s__2178243.jpg"
     }
   ]
 }
