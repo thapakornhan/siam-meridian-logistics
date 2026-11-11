@@ -3,15 +3,8 @@ title: What Is a Freight Forwarder?
 slug: what-is-a-freight-forwarder
 date: 2026-11-11
 published: true
-summary: >-
-  Understanding the role of freight forwarders and how they simplify
+summary: Understanding the role of freight forwarders and how they simplify
   international shipping for businesses.
-
-
-  In international trade, moving goods from one country to another involves much more than simply booking space on a vessel or aircraft. It requires careful coordination, shipping documentation, customs procedures, transportation planning, and communication between multiple parties.
-
-
-  This is where a Freight Forwarder plays an important role.
 image: /uploads/ภาพฮีโร่เว็บไซต์โลจิสติกส์.png
 seo_description: Understanding the role of freight forwarders and how they
   simplify international shipping for businesses.
