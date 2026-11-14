@@ -35,7 +35,7 @@
       "show_footer": true,
       "show_home": true,
       "type": "wechat",
-      "value": "WeChat ID : SML0987189881",
+      "value": "SML0987189881",
       "qr": "/uploads/s__2178243.jpg"
     },
     {
@@ -43,7 +43,7 @@
       "show_footer": true,
       "show_home": true,
       "type": "line",
-      "value": "Line ID : 0987189881",
+      "value": "0987189881",
       "qr": "/uploads/s__2178245.jpg"
     }
   ]
